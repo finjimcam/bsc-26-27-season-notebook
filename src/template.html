@@ -1,0 +1,1800 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="9cdf91c8-d2b0-44ec-8498-f2bfcbb743cb"></script>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>/* Nocturne — design-system tokens and component classes. This file is the source of truth for the system's look; retune it here and see readme.md. */
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("35c98ff2-b7e4-4552-96a3-53e31a267660") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("a91f4137-cf4c-4f0d-8528-8779a70c49ab") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("2d2410c8-1929-4793-bdc4-1c798e136d87") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("f89ecb50-787a-408e-8bd1-776fe947344a") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("11936e25-e044-42f3-b1b1-fdce4ebd0586") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("ab087579-0518-473e-a7c7-999a5d76295a") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("ecdc8725-0911-4a72-b984-a130617b9281") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("35c98ff2-b7e4-4552-96a3-53e31a267660") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("a91f4137-cf4c-4f0d-8528-8779a70c49ab") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("2d2410c8-1929-4793-bdc4-1c798e136d87") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("f89ecb50-787a-408e-8bd1-776fe947344a") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("11936e25-e044-42f3-b1b1-fdce4ebd0586") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("ab087579-0518-473e-a7c7-999a5d76295a") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("ecdc8725-0911-4a72-b984-a130617b9281") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("35c98ff2-b7e4-4552-96a3-53e31a267660") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("a91f4137-cf4c-4f0d-8528-8779a70c49ab") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("2d2410c8-1929-4793-bdc4-1c798e136d87") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("f89ecb50-787a-408e-8bd1-776fe947344a") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("11936e25-e044-42f3-b1b1-fdce4ebd0586") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("ab087579-0518-473e-a7c7-999a5d76295a") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("ecdc8725-0911-4a72-b984-a130617b9281") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("35c98ff2-b7e4-4552-96a3-53e31a267660") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("a91f4137-cf4c-4f0d-8528-8779a70c49ab") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("2d2410c8-1929-4793-bdc4-1c798e136d87") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("f89ecb50-787a-408e-8bd1-776fe947344a") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("11936e25-e044-42f3-b1b1-fdce4ebd0586") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("ab087579-0518-473e-a7c7-999a5d76295a") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("ecdc8725-0911-4a72-b984-a130617b9281") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+:root {
+  --color-bg: #161826;
+  --color-surface: #232532;
+  --color-text: #e9e9ed;
+  --color-accent: #9184d9; /* review round 7 (Barron): the accent moves to
+     the product's blurple — OKLCH hue 289.2, the hue of the app's own Pro
+     accent (#9a8fe0, --om-accent-pro) — at the same lightness the steel
+     accent held (L 0.660, so the documented ratios survive) and chroma
+     in the product blurple's own range (its token sits at C 0.118; the
+     accent takes 0.125, from the old steel's 0.030):
+     the accent now reads as an accent rather than another neutral. */
+  --color-accent-2: #a7a1db; /* the machine-derived stand-in follows: same
+     hue, same L 0.734, chroma at the same 2:3 proportion it held */
+  --color-divider: color-mix(in srgb, #e9e9ed 16%, transparent);
+
+  /* Tonal ramps — generated in OKLCH on one shared lightness scale, so the
+     same step of any role matches the others in visual value. */
+  --color-neutral-100: #f3f5fe;
+  --color-neutral-200: #e4e7f5;
+  --color-neutral-300: #cfd3e5;
+  --color-neutral-400: #b2b6ca;
+  --color-neutral-500: #9397ab;
+  --color-neutral-600: #75798c;
+  --color-neutral-700: #595d6c;
+  --color-neutral-800: #3f424d;
+  --color-neutral-900: #292b31;
+
+  --color-accent-100: #f5f4ff;
+  --color-accent-200: #e7e5fe;
+  --color-accent-300: #d2cefd;
+  --color-accent-400: #b5abfc;
+  --color-accent-500: #968ae0;
+  --color-accent-600: #796cbf;
+  --color-accent-700: #5d5294;
+  --color-accent-800: #423a6a;
+  --color-accent-900: #2b2741;
+
+  --color-accent-2-100: #f5f4ff;
+  --color-accent-2-200: #e7e5fe;
+  --color-accent-2-300: #d2cefd;
+  --color-accent-2-400: #b5afe8;
+  --color-accent-2-500: #9690c9;
+  --color-accent-2-600: #7972a9;
+  --color-accent-2-700: #5c5783;
+  --color-accent-2-800: #423e5d;
+  --color-accent-2-900: #2b293a;
+
+  /* Deck section-divider ground — review round 3: saturation as presence.
+     Dividers take a saturated deep indigo (hue 277, the neutral ramp's own
+     family; C 0.094 — written when the accent held C 0.030, before the
+     round-7 blurple raised it past the ground's) with a lighter bloom and
+     a ghost tint of the same hue, while the slide grounds stay
+     desaturated. Deck-scale fills only — not interface colors. */
+  --color-section: #262a60;
+  --color-section-glow: #353b80;
+  --color-section-ghost: #4c5397;
+
+  --font-heading: "Inter", system-ui, sans-serif;
+  --font-heading-weight: 500;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  --space-1: 2.8px;
+  --space-2: 5.6px;
+  --space-3: 8.4px;
+  --space-4: 11.2px;
+  --space-6: 16.8px;
+  --space-8: 22.4px;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+
+  /* Elevation — derived from the ground: soft ink-tinted shadows on a
+     light theme, a hairline edge + ambient darkness on a dark one. */
+  --shadow-sm: 0 0 0 1px #3f424d;
+  --shadow-md: 0 0 0 1px #595d6c, 0 6px 18px rgba(0,0,0,0.55);
+  --shadow-lg: 0 0 0 1px #9397ab, 0 16px 40px rgba(0,0,0,0.65);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); }
+
+.lighten{mix-blend-mode:lighten;background-color:transparent}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Components — built with the tokens above. Plain CSS
+   on plain HTML: no JavaScript, no build step. Each class is documented in
+   readme.md and demonstrated in foundations/ and components/.
+   ══════════════════════════════════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; font-size: 15px; line-height: 1.55; font-weight: 400; }
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  line-height: 1.12; letter-spacing: -0.015em; margin: 0 0 var(--space-2);
+}
+h1 { font-size: 42px; }
+h2 { font-size: 32px; }
+h3 { font-size: 25px; }
+h4 { font-size: 20px; }
+h5 { font-size: 16px; }
+h6 { font-size: 13px; }
+h6 { letter-spacing: 0.08em; text-transform: uppercase; }
+p { margin: 0 0 var(--space-3); }
+a { color: var(--color-accent); text-underline-offset: 3px; }
+img { display: block; max-width: 100%; }
+figure { margin: 0; }
+figcaption {
+  font-size: 11px; margin-top: var(--space-1);
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+.text-muted { color: color-mix(in srgb, var(--color-text) 55%, transparent); }
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+
+/* — rules — */
+/* Rules fade to transparent at both ends instead of stopping cleanly — a
+   Nocturne signature. The ramp is 48px an end (one deck baseline unit),
+   painted from the same divider token. Freestanding rules fade; box
+   outlines, in-control separators, and short accent marks stay solid. */
+.hr {
+  height: 1px; border: 0; margin: var(--space-4) 0;
+  background: linear-gradient(to right,
+    transparent, var(--color-divider) 48px,
+    var(--color-divider) calc(100% - 48px), transparent);
+}
+
+/* — buttons — */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  cursor: pointer; text-decoration: none;
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 13px; line-height: 1.2; color: var(--color-text);
+  background: transparent; border: 1px solid transparent;
+  padding: calc(var(--space-2) * 0.85) var(--space-3);
+  border-radius: var(--radius-md);
+}
+.btn svg { display: block; }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn-primary { color: var(--color-accent); border-color: var(--color-accent); }
+.btn-primary:hover { background: color-mix(in srgb, var(--color-accent) 12%, transparent); }
+.btn-primary:active { background: color-mix(in srgb, var(--color-accent) 22%, transparent); }
+.btn-secondary { border-color: var(--color-divider); }
+.btn-secondary:hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); }
+.btn-secondary:active { background: color-mix(in srgb, var(--color-text) 14%, transparent); }
+.btn-ghost { color: var(--color-accent); padding-inline: var(--space-1); }
+.btn-ghost:hover { background: color-mix(in srgb, var(--color-accent) 10%, transparent); }
+.btn-ghost:active { background: color-mix(in srgb, var(--color-accent) 18%, transparent); }
+.btn-icon { width: 34px; height: 34px; padding: 0; }
+.btn-block { width: 100%; margin-top: var(--space-2); }
+
+/* — forms — */
+.field > label {
+  display: block; font-size: 12px; margin-bottom: 5px;
+  color: color-mix(in srgb, var(--color-text) 70%, transparent);
+}
+.input {
+  width: 100%; min-height: 36px; padding: 6px 10px; font: inherit;
+  font-size: 14px; color: var(--color-text); caret-color: var(--color-accent);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider); border-radius: var(--radius-md);
+}
+.input:hover { border-color: color-mix(in srgb, var(--color-text) 45%, transparent); }
+.input:focus-visible { border-color: var(--color-accent); outline-offset: 0; }
+textarea.input { min-height: 90px; resize: vertical; }
+.radio { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; }
+.radio input, .seg-opt input {
+  position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;
+}
+.radio .dot {
+  width: 16px; height: 16px; flex: none; border-radius: 50%;
+  border: 1.5px solid var(--color-divider);
+}
+.radio:hover .dot { border-color: var(--color-accent); }
+.radio input:checked + .dot {
+  border-color: var(--color-accent); background: var(--color-accent);
+  box-shadow: inset 0 0 0 4px var(--color-bg);
+}
+.radio input:focus-visible + .dot { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.seg {
+  display: inline-flex; overflow: hidden;
+  border: 1px solid var(--color-divider); border-radius: var(--radius-md);
+}
+.seg-opt {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 12px; font-size: 13px; cursor: pointer;
+}
+.seg-opt + .seg-opt { border-left: 1px solid var(--color-divider); }
+.seg-opt:has(input:checked) { color: var(--color-accent); box-shadow: inset 0 0 0 1px var(--color-accent); }
+.seg-opt:not(:has(input:checked)):hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); }
+.seg-opt:has(input:focus-visible) { outline: 2px solid var(--color-accent); outline-offset: -2px; }
+
+/* — cards — */
+.card {
+  display: flex; flex-direction: column; gap: var(--space-2);
+  padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-surface);
+}
+.card-kicker { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent); }
+.card-title {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 17px; line-height: 1.2;
+}
+.card-body { margin: 0; font-size: 13px; opacity: 0.8; flex: 1; }
+.card-meta {
+  display: flex; align-items: center; gap: 6px; font-size: 11px;
+  color: color-mix(in srgb, var(--color-text) 50%, transparent);
+}
+.elev-sm { box-shadow: var(--shadow-sm); }
+.elev-md { box-shadow: var(--shadow-md); }
+.elev-lg { box-shadow: var(--shadow-lg); }
+
+/* — tags — */
+.tag {
+  display: inline-flex; align-items: center; font-size: 11px;
+  letter-spacing: 0.02em; padding: 3px 10px;
+  border-radius: calc(var(--radius-md) * 0.75);
+}
+.tag-accent { background: var(--color-accent-800); color: var(--color-accent-100); }
+.tag-accent-2 { background: var(--color-accent-2-800); color: var(--color-accent-2-100); }
+.tag-neutral { background: var(--color-neutral-800); color: var(--color-neutral-100); }
+.tag-outline { border: 1px solid var(--color-accent); color: var(--color-accent); }
+
+/* — navigation — */
+.nav {
+  display: flex; align-items: center; gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: none;
+}
+.nav-brand {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 18px; margin-right: auto;
+}
+.nav a { color: inherit; text-decoration: none; font-size: 14px; }
+.nav a:hover, .nav a[aria-current='page'] { color: var(--color-accent); }
+
+/* — tables — */
+.table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.table th {
+  text-align: left; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+  padding: var(--space-2); border-bottom: 1px solid transparent; /* keeps layout; the row paints the fading rule */
+}
+.table td {
+  padding: var(--space-2);
+  border-bottom: 1px solid transparent;
+}
+/* Row rules as row-level strips so the end-fade spans the row, not each cell. */
+.table thead tr {
+  background: linear-gradient(to right,
+    transparent, var(--color-divider) 48px,
+    var(--color-divider) calc(100% - 48px), transparent) no-repeat bottom / 100% 1px;
+}
+.table tbody tr {
+  background: linear-gradient(to right,
+    transparent, color-mix(in srgb, var(--color-text) 8%, transparent) 48px,
+    color-mix(in srgb, var(--color-text) 8%, transparent) calc(100% - 48px), transparent) no-repeat bottom / 100% 1px;
+}
+.table tbody tr:hover {
+  /* the hover tint layers over the row rule, which keeps painting */
+  background:
+    linear-gradient(color-mix(in srgb, var(--color-text) 4%, transparent),
+                    color-mix(in srgb, var(--color-text) 4%, transparent)) no-repeat 0 0 / 100% 100%,
+    linear-gradient(to right,
+      transparent, color-mix(in srgb, var(--color-text) 8%, transparent) 48px,
+      color-mix(in srgb, var(--color-text) 8%, transparent) calc(100% - 48px), transparent) no-repeat bottom / 100% 1px;
+}
+
+/* — dialog — */
+.dialog-backdrop {
+  position: fixed; inset: 0; display: grid; place-items: center;
+  padding: var(--space-4);
+  background: color-mix(in srgb, var(--color-neutral-900) 50%, transparent);
+}
+.dialog {
+  width: min(440px, 100%); display: flex; flex-direction: column; gap: var(--space-3);
+  padding: var(--space-4); border-radius: var(--radius-lg);
+  background: var(--color-surface); box-shadow: var(--shadow-lg);
+}
+.dialog-title {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 20px;
+}
+.dialog-body { font-size: 14px; opacity: 0.85; }
+.dialog-actions { display: flex; justify-content: flex-end; gap: var(--space-2); margin-top: var(--space-2); }
+
+</style>
+  <script src="98e4dc0d-9140-4b88-bcea-285b12d3d8a5"></script>
+  <style>
+    a { color: var(--color-accent); } a:hover { color: var(--color-accent-300); }
+    textarea { font-family: var(--font-body); }
+    summary { cursor: pointer; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    /* View-only mode: no edit token on this device. Mutating buttons are all
+       btn-primary/secondary/ghost; tab + tool buttons are plain .btn. */
+    .view-only .btn-primary, .view-only .btn-secondary, .view-only .btn-ghost { display: none !important; }
+    .view-only input, .view-only textarea { pointer-events: none; }
+    @media print {
+      [data-np] { display: none !important; }
+      body { background: #ffffff; color: #1c1e26; }
+      input, textarea { background: #ffffff !important; color: #1c1e26 !important; border-color: #c8cad4 !important; }
+      details { break-inside: avoid; }
+    }
+  </style>
+</helmet>
+<div style="max-width: 1180px; margin: 0 auto; padding: 28px 32px 90px; min-height: 100vh">
+  <header style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 16px; margin-bottom: 8px">
+    <div style="flex: 1; min-width: 280px">
+      <div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 6px">Season notebook</div>
+      <input value="{{ team }}" data-sec="team" sc-camel-on-change="{{ onField }}" aria-label="Team name" style="background: transparent; border: none; font-family: var(--font-heading); font-weight: 500; font-size: 36px; letter-spacing: -0.015em; color: var(--color-text); width: 100%; padding: 0">
+      <input value="{{ season }}" data-sec="season" sc-camel-on-change="{{ onField }}" aria-label="Season" style="background: transparent; border: none; font-size: 14px; color: var(--color-neutral-500); width: 100%; padding: 0; margin-top: 2px">
+    </div>
+    <nav data-np="" style="display: flex; flex-wrap: wrap; gap: 4px">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="6">
+        <button class="btn" sc-camel-on-click="{{ t.go }}" style="{{ t.style }}">{{ t.label }}</button>
+      </sc-for>
+    </nav>
+  </header>
+  <hr class="hr">
+
+  <!-- ══ SESSIONS ══ -->
+  <sc-if value="{{ tabSessions }}" hint-placeholder-val="{{ true }}">
+    <section style="display: flex; flex-direction: column; gap: 14px">
+      <div style="display: flex; align-items: center; gap: 12px">
+        <h3 style="margin: 0">Session plans</h3>
+        <span class="tag tag-neutral">{{ sessionCount }}</span>
+        <span style="flex: 1"></span>
+        <button data-np="" class="btn btn-primary" sc-camel-on-click="{{ addSession }}">+ New session</button>
+      </div>
+      <sc-if value="{{ noSessions }}" hint-placeholder-val="{{ false }}">
+        <p class="text-muted" style="font-size: 14px">No sessions yet — add your first plan. Each one follows the drill → game-related practice → conditioned game structure, with a self-evaluation underneath.</p>
+      </sc-if>
+      <sc-for list="{{ sessionsView }}" as="s" hint-placeholder-count="2">
+        <details class="card elev-sm">
+          <summary style="display: flex; align-items: center; gap: 12px; padding: 4px 2px">
+            <span class="tag tag-accent">{{ s.date }}</span>
+            <span style="font-family: var(--font-heading); font-size: 16px">{{ s.theme }}</span>
+            <span class="text-muted" style="font-size: 12px">{{ s.venue }}</span>
+            <span style="flex: 1"></span>
+            <span class="text-muted" style="font-size: 12px">{{ s.duration }}</span>
+          </summary>
+          <div style="display: grid; grid-template-columns: 150px 1fr 130px 1fr; gap: 10px; margin-top: 10px">
+            <div class="field"><label>Date</label><input class="input" type="date" value="{{ s.date }}" data-sec="sessions" data-id="{{ s.id }}" data-field="date" sc-camel-on-change="{{ onField }}"></div>
+            <div class="field"><label>Theme</label><input class="input" placeholder="e.g. Possession" value="{{ s.theme }}" data-sec="sessions" data-id="{{ s.id }}" data-field="theme" sc-camel-on-change="{{ onField }}"></div>
+            <div class="field"><label>Duration</label><input class="input" value="{{ s.duration }}" data-sec="sessions" data-id="{{ s.id }}" data-field="duration" sc-camel-on-change="{{ onField }}"></div>
+            <div class="field"><label>Venue</label><input class="input" value="{{ s.venue }}" data-sec="sessions" data-id="{{ s.id }}" data-field="venue" sc-camel-on-change="{{ onField }}"></div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 6px">
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <div style="display: flex; align-items: center; gap: 8px">
+                <span style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent)">Drill</span>
+                <input class="input" type="number" value="{{ s.drillMin }}" data-sec="sessions" data-id="{{ s.id }}" data-field="drillMin" sc-camel-on-change="{{ onField }}" aria-label="Drill minutes" style="width: 58px; min-height: 28px; padding: 2px 8px; font-size: 12px">
+                <span class="text-muted" style="font-size: 11px">min</span>
+              </div>
+              <textarea class="input" rows="5" placeholder="Setup, rules, coaching points…" value="{{ s.drill }}" data-sec="sessions" data-id="{{ s.id }}" data-field="drill" sc-camel-on-change="{{ onField }}"></textarea>
+              <div data-np="" style="display: flex; align-items: center; gap: 3px; flex-wrap: wrap">
+                <sc-for list="{{ s.boardDrill.tools }}" as="tl" hint-placeholder-count="5">
+                  <button class="btn" sc-camel-on-click="{{ tl.set }}" style="{{ tl.style }}">{{ tl.label }}</button>
+                </sc-for>
+                <span style="flex: 1"></span>
+                <button class="btn btn-ghost" sc-camel-on-click="{{ s.boardDrill.undo }}" style="padding: 3px 8px; font-size: 12px">Undo</button>
+              </div>
+              <div data-np="" style="display: flex; align-items: center; gap: 3px; flex-wrap: wrap">
+                <button class="btn btn-secondary" sc-camel-on-click="{{ s.boardDrill.addHome }}" style="padding: 3px 8px; font-size: 12px">+ Us</button>
+                <button class="btn btn-secondary" sc-camel-on-click="{{ s.boardDrill.addAway }}" style="padding: 3px 8px; font-size: 12px">+ Opp</button>
+                <button class="btn btn-secondary" sc-camel-on-click="{{ s.boardDrill.addBall }}" style="padding: 3px 8px; font-size: 12px">+ Ball</button>
+                <span style="flex: 1"></span>
+                <button class="btn btn-ghost" sc-camel-on-click="{{ s.boardDrill.clearDraw }}" style="padding: 3px 8px; font-size: 12px; color: var(--color-neutral-500)">Clear</button>
+              </div>
+              <div style="position: relative; aspect-ratio: 52.5 / 68; border-radius: var(--radius-md); overflow: hidden; touch-action: none; background: radial-gradient(130% 120% at 30% 50%, var(--color-neutral-900), var(--color-bg))" data-bid="{{ s.boardDrill.id }}" data-vw="52.5" sc-camel-on-pointer-down="{{ drawDown }}" sc-camel-on-pointer-move="{{ drawMove }}" sc-camel-on-pointer-up="{{ drawUp }}">
+                <svg sc-camel-view-box="0 0 52.5 68" sc-camel-preserve-aspect-ratio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
+                  <g fill="none" stroke="rgba(233,233,237,0.16)" stroke-width="0.5">
+                    <rect x="2" y="2" width="48.5" height="64"></rect>
+                    <rect x="2" y="13.85" width="16.5" height="40.3"></rect>
+                    <rect x="2" y="24.84" width="5.5" height="18.32"></rect>
+                    <path d="M 50.5 24.85 A 9.15 9.15 0 0 0 50.5 43.15"></path>
+                  </g>
+                  <circle cx="13" cy="34" r="0.5" fill="rgba(233,233,237,0.16)"></circle>
+                </svg>
+                <svg sc-camel-view-box="0 0 52.5 68" sc-camel-preserve-aspect-ratio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
+                  <sc-for list="{{ s.boardDrill.shapes }}" as="sh" hint-placeholder-count="1">
+                    <path d="{{ sh.d }}" fill="none" stroke="var(--color-accent-400)" stroke-width="{{ sh.w }}" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"></path>
+                  </sc-for>
+                </svg>
+                <sc-for list="{{ s.boardDrill.tokens }}" as="tk" hint-placeholder-count="2">
+                  <div style="{{ tk.style }}" data-bid="{{ s.boardDrill.id }}" data-tid="{{ tk.id }}" sc-camel-on-pointer-down="{{ tokDown }}" sc-camel-on-pointer-move="{{ tokMove }}" sc-camel-on-pointer-up="{{ tokUp }}" sc-camel-on-double-click="{{ tokDel }}">{{ tk.tag }}</div>
+                </sc-for>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <div style="display: flex; align-items: center; gap: 8px">
+                <span style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent)">Game-related practice</span>
+                <input class="input" type="number" value="{{ s.grpMin }}" data-sec="sessions" data-id="{{ s.id }}" data-field="grpMin" sc-camel-on-change="{{ onField }}" aria-label="GRP minutes" style="width: 58px; min-height: 28px; padding: 2px 8px; font-size: 12px">
+                <span class="text-muted" style="font-size: 11px">min</span>
+              </div>
+              <textarea class="input" rows="5" placeholder="Objective, conditions, rotations…" value="{{ s.grp }}" data-sec="sessions" data-id="{{ s.id }}" data-field="grp" sc-camel-on-change="{{ onField }}"></textarea>
+              <div data-np="" style="display: flex; align-items: center; gap: 3px; flex-wrap: wrap">
+                <sc-for list="{{ s.boardGrp.tools }}" as="tl" hint-placeholder-count="5">
+                  <button class="btn" sc-camel-on-click="{{ tl.set }}" style="{{ tl.style }}">{{ tl.label }}</button>
+                </sc-for>
+                <span style="flex: 1"></span>
+                <button class="btn btn-ghost" sc-camel-on-click="{{ s.boardGrp.undo }}" style="padding: 3px 8px; font-size: 12px">Undo</button>
+              </div>
+              <div data-np="" style="display: flex; align-items: center; gap: 3px; flex-wrap: wrap">
+                <button class="btn btn-secondary" sc-camel-on-click="{{ s.boardGrp.addHome }}" style="padding: 3px 8px; font-size: 12px">+ Us</button>
+                <button class="btn btn-secondary" sc-camel-on-click="{{ s.boardGrp.addAway }}" style="padding: 3px 8px; font-size: 12px">+ Opp</button>
+                <button class="btn btn-secondary" sc-camel-on-click="{{ s.boardGrp.addBall }}" style="padding: 3px 8px; font-size: 12px">+ Ball</button>
+                <span style="flex: 1"></span>
+                <button class="btn btn-ghost" sc-camel-on-click="{{ s.boardGrp.clearDraw }}" style="padding: 3px 8px; font-size: 12px; color: var(--color-neutral-500)">Clear</button>
+              </div>
+              <div style="position: relative; aspect-ratio: 52.5 / 68; border-radius: var(--radius-md); overflow: hidden; touch-action: none; background: radial-gradient(130% 120% at 30% 50%, var(--color-neutral-900), var(--color-bg))" data-bid="{{ s.boardGrp.id }}" data-vw="52.5" sc-camel-on-pointer-down="{{ drawDown }}" sc-camel-on-pointer-move="{{ drawMove }}" sc-camel-on-pointer-up="{{ drawUp }}">
+                <svg sc-camel-view-box="0 0 52.5 68" sc-camel-preserve-aspect-ratio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
+                  <g fill="none" stroke="rgba(233,233,237,0.16)" stroke-width="0.5">
+                    <rect x="2" y="2" width="48.5" height="64"></rect>
+                    <rect x="2" y="13.85" width="16.5" height="40.3"></rect>
+                    <rect x="2" y="24.84" width="5.5" height="18.32"></rect>
+                    <path d="M 50.5 24.85 A 9.15 9.15 0 0 0 50.5 43.15"></path>
+                  </g>
+                  <circle cx="13" cy="34" r="0.5" fill="rgba(233,233,237,0.16)"></circle>
+                </svg>
+                <svg sc-camel-view-box="0 0 52.5 68" sc-camel-preserve-aspect-ratio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
+                  <sc-for list="{{ s.boardGrp.shapes }}" as="sh" hint-placeholder-count="1">
+                    <path d="{{ sh.d }}" fill="none" stroke="var(--color-accent-400)" stroke-width="{{ sh.w }}" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"></path>
+                  </sc-for>
+                </svg>
+                <sc-for list="{{ s.boardGrp.tokens }}" as="tk" hint-placeholder-count="2">
+                  <div style="{{ tk.style }}" data-bid="{{ s.boardGrp.id }}" data-tid="{{ tk.id }}" sc-camel-on-pointer-down="{{ tokDown }}" sc-camel-on-pointer-move="{{ tokMove }}" sc-camel-on-pointer-up="{{ tokUp }}" sc-camel-on-double-click="{{ tokDel }}">{{ tk.tag }}</div>
+                </sc-for>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <div style="display: flex; align-items: center; gap: 8px">
+                <span style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent)">Conditioned game</span>
+                <input class="input" type="number" value="{{ s.gameMin }}" data-sec="sessions" data-id="{{ s.id }}" data-field="gameMin" sc-camel-on-change="{{ onField }}" aria-label="Game minutes" style="width: 58px; min-height: 28px; padding: 2px 8px; font-size: 12px">
+                <span class="text-muted" style="font-size: 11px">min</span>
+              </div>
+              <textarea class="input" rows="5" placeholder="Scoring conditions, constraints…" value="{{ s.game }}" data-sec="sessions" data-id="{{ s.id }}" data-field="game" sc-camel-on-change="{{ onField }}"></textarea>
+              <div data-np="" style="display: flex; align-items: center; gap: 3px; flex-wrap: wrap">
+                <sc-for list="{{ s.boardGame.tools }}" as="tl" hint-placeholder-count="5">
+                  <button class="btn" sc-camel-on-click="{{ tl.set }}" style="{{ tl.style }}">{{ tl.label }}</button>
+                </sc-for>
+                <span style="flex: 1"></span>
+                <button class="btn btn-ghost" sc-camel-on-click="{{ s.boardGame.undo }}" style="padding: 3px 8px; font-size: 12px">Undo</button>
+              </div>
+              <div data-np="" style="display: flex; align-items: center; gap: 3px; flex-wrap: wrap">
+                <button class="btn btn-secondary" sc-camel-on-click="{{ s.boardGame.addHome }}" style="padding: 3px 8px; font-size: 12px">+ Us</button>
+                <button class="btn btn-secondary" sc-camel-on-click="{{ s.boardGame.addAway }}" style="padding: 3px 8px; font-size: 12px">+ Opp</button>
+                <button class="btn btn-secondary" sc-camel-on-click="{{ s.boardGame.addBall }}" style="padding: 3px 8px; font-size: 12px">+ Ball</button>
+                <span style="flex: 1"></span>
+                <button class="btn btn-ghost" sc-camel-on-click="{{ s.boardGame.clearDraw }}" style="padding: 3px 8px; font-size: 12px; color: var(--color-neutral-500)">Clear</button>
+              </div>
+              <div style="position: relative; aspect-ratio: 52.5 / 68; border-radius: var(--radius-md); overflow: hidden; touch-action: none; background: radial-gradient(130% 120% at 30% 50%, var(--color-neutral-900), var(--color-bg))" data-bid="{{ s.boardGame.id }}" data-vw="52.5" sc-camel-on-pointer-down="{{ drawDown }}" sc-camel-on-pointer-move="{{ drawMove }}" sc-camel-on-pointer-up="{{ drawUp }}">
+                <svg sc-camel-view-box="0 0 52.5 68" sc-camel-preserve-aspect-ratio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
+                  <g fill="none" stroke="rgba(233,233,237,0.16)" stroke-width="0.5">
+                    <rect x="2" y="2" width="48.5" height="64"></rect>
+                    <rect x="2" y="13.85" width="16.5" height="40.3"></rect>
+                    <rect x="2" y="24.84" width="5.5" height="18.32"></rect>
+                    <path d="M 50.5 24.85 A 9.15 9.15 0 0 0 50.5 43.15"></path>
+                  </g>
+                  <circle cx="13" cy="34" r="0.5" fill="rgba(233,233,237,0.16)"></circle>
+                </svg>
+                <svg sc-camel-view-box="0 0 52.5 68" sc-camel-preserve-aspect-ratio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
+                  <sc-for list="{{ s.boardGame.shapes }}" as="sh" hint-placeholder-count="1">
+                    <path d="{{ sh.d }}" fill="none" stroke="var(--color-accent-400)" stroke-width="{{ sh.w }}" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"></path>
+                  </sc-for>
+                </svg>
+                <sc-for list="{{ s.boardGame.tokens }}" as="tk" hint-placeholder-count="2">
+                  <div style="{{ tk.style }}" data-bid="{{ s.boardGame.id }}" data-tid="{{ tk.id }}" sc-camel-on-pointer-down="{{ tokDown }}" sc-camel-on-pointer-move="{{ tokMove }}" sc-camel-on-pointer-up="{{ tokUp }}" sc-camel-on-double-click="{{ tokDel }}">{{ tk.tag }}</div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+          <div style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-neutral-500); margin-top: 14px">Self-evaluation</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 4px">
+            <div class="field"><label>What went well?</label><textarea class="input" rows="3" value="{{ s.evalWell }}" data-sec="sessions" data-id="{{ s.id }}" data-field="evalWell" sc-camel-on-change="{{ onField }}"></textarea></div>
+            <div class="field"><label>What was challenging?</label><textarea class="input" rows="3" value="{{ s.evalHard }}" data-sec="sessions" data-id="{{ s.id }}" data-field="evalHard" sc-camel-on-change="{{ onField }}"></textarea></div>
+            <div class="field"><label>What would you change?</label><textarea class="input" rows="3" value="{{ s.evalChange }}" data-sec="sessions" data-id="{{ s.id }}" data-field="evalChange" sc-camel-on-change="{{ onField }}"></textarea></div>
+            <div class="field"><label>Personal improvement goals</label><textarea class="input" rows="3" placeholder="1.
+2.
+3." value="{{ s.evalGoals }}" data-sec="sessions" data-id="{{ s.id }}" data-field="evalGoals" sc-camel-on-change="{{ onField }}"></textarea></div>
+          </div>
+          <div data-np="" style="display: flex; justify-content: flex-end; margin-top: 6px">
+            <button class="btn btn-ghost" sc-camel-on-click="{{ s.del }}" style="color: var(--color-neutral-500)">Delete session</button>
+          </div>
+        </details>
+      </sc-for>
+    </section>
+  </sc-if>
+
+  <!-- ══ PHILOSOPHY ══ -->
+  <sc-if value="{{ tabPhilosophy }}" hint-placeholder-val="{{ false }}">
+    <section style="display: flex; flex-direction: column; gap: 22px">
+      <div class="card elev-sm">
+        <div class="card-kicker">Season objectives</div>
+        <textarea class="input" rows="4" placeholder="What does a successful season look like for this squad?" value="{{ phil.objectives }}" data-sec="phil" data-field="objectives" sc-camel-on-change="{{ onField }}"></textarea>
+      </div>
+      <div>
+        <h4 style="margin-bottom: 10px">Principles of play</h4>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px">
+          <div class="card elev-sm"><div class="card-kicker">Build-up</div><textarea class="input" rows="5" placeholder="How we play out from the back…" value="{{ phil.build }}" data-sec="phil" data-field="build" sc-camel-on-change="{{ onField }}"></textarea></div>
+          <div class="card elev-sm"><div class="card-kicker">Attacking</div><textarea class="input" rows="5" placeholder="How we create and finish chances…" value="{{ phil.attack }}" data-sec="phil" data-field="attack" sc-camel-on-change="{{ onField }}"></textarea></div>
+          <div class="card elev-sm"><div class="card-kicker">Defending</div><textarea class="input" rows="5" placeholder="Press triggers, cover, compactness…" value="{{ phil.defend }}" data-sec="phil" data-field="defend" sc-camel-on-change="{{ onField }}"></textarea></div>
+          <div class="card elev-sm"><div class="card-kicker">Transitions</div><textarea class="input" rows="5" placeholder="First 5 seconds after winning / losing the ball…" value="{{ phil.transition }}" data-sec="phil" data-field="transition" sc-camel-on-change="{{ onField }}"></textarea></div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <div style="display: flex; align-items: center; gap: 12px">
+          <h4 style="margin: 0">Passages of play</h4>
+          <span style="flex: 1"></span>
+          <button data-np="" class="btn btn-primary" sc-camel-on-click="{{ addPassage }}">+ New passage</button>
+        </div>
+        <sc-if value="{{ noPassages }}" hint-placeholder-val="{{ false }}"><p class="text-muted" style="font-size: 14px; margin: 0">Diagram the patterns you want the team to recognise — drag players and the ball into position, then describe the movement.</p></sc-if>
+        <sc-for list="{{ passagesView }}" as="b" hint-placeholder-count="1">
+          <div class="card elev-sm">
+            <div data-np="" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+              <input class="input" value="{{ b.name }}" data-sec="boards" data-id="{{ b.id }}" data-field="name" sc-camel-on-change="{{ onField }}" style="flex: 1; min-width: 200px; font-family: var(--font-heading)">
+              <button class="btn btn-secondary" sc-camel-on-click="{{ b.addHome }}">+ Us</button>
+              <button class="btn btn-secondary" sc-camel-on-click="{{ b.addAway }}">+ Opp</button>
+              <button class="btn btn-secondary" sc-camel-on-click="{{ b.addBall }}">+ Ball</button>
+              <button class="btn btn-ghost" sc-camel-on-click="{{ b.reset }}">Reset 11v11</button>
+              <button class="btn btn-ghost" sc-camel-on-click="{{ b.del }}" style="color: var(--color-neutral-500)">Delete</button>
+            </div>
+            <div data-np="" style="display: flex; align-items: center; gap: 4px; flex-wrap: wrap">
+              <sc-for list="{{ b.tools }}" as="tl" hint-placeholder-count="5">
+                <button class="btn" sc-camel-on-click="{{ tl.set }}" style="{{ tl.style }}">{{ tl.label }}</button>
+              </sc-for>
+              <span style="flex: 1"></span>
+              <button class="btn btn-ghost" sc-camel-on-click="{{ b.undo }}" style="padding: 3px 10px; font-size: 12px">Undo</button>
+              <button class="btn btn-ghost" sc-camel-on-click="{{ b.clearDraw }}" style="padding: 3px 10px; font-size: 12px; color: var(--color-neutral-500)">Clear drawings</button>
+            </div>
+            <div style="position: relative; aspect-ratio: 105 / 68; border-radius: var(--radius-md); overflow: hidden; touch-action: none; background: radial-gradient(120% 130% at 50% 30%, var(--color-neutral-900), var(--color-bg))" data-bid="{{ b.id }}" data-vw="105" sc-camel-on-pointer-down="{{ drawDown }}" sc-camel-on-pointer-move="{{ drawMove }}" sc-camel-on-pointer-up="{{ drawUp }}">
+              <svg sc-camel-view-box="0 0 105 68" sc-camel-preserve-aspect-ratio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
+                <g fill="none" stroke="rgba(233,233,237,0.16)" stroke-width="0.5">
+                  <rect x="2" y="2" width="101" height="64" rx="1"></rect>
+                  <line x1="52.5" y1="2" x2="52.5" y2="66"></line>
+                  <circle cx="52.5" cy="34" r="9.15"></circle>
+                  <rect x="2" y="13.85" width="16.5" height="40.3"></rect>
+                  <rect x="86.5" y="13.85" width="16.5" height="40.3"></rect>
+                  <rect x="2" y="24.84" width="5.5" height="18.32"></rect>
+                  <rect x="97.5" y="24.84" width="5.5" height="18.32"></rect>
+                </g>
+                <circle cx="13" cy="34" r="0.5" fill="rgba(233,233,237,0.16)"></circle>
+                <circle cx="92" cy="34" r="0.5" fill="rgba(233,233,237,0.16)"></circle>
+              </svg>
+              <svg sc-camel-view-box="0 0 105 68" sc-camel-preserve-aspect-ratio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
+                <sc-for list="{{ b.shapes }}" as="sh" hint-placeholder-count="1">
+                  <path d="{{ sh.d }}" fill="none" stroke="var(--color-accent-400)" stroke-width="{{ sh.w }}" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"></path>
+                </sc-for>
+              </svg>
+              <sc-for list="{{ b.tokens }}" as="tk" hint-placeholder-count="2">
+                <div style="{{ tk.style }}" data-bid="{{ b.id }}" data-tid="{{ tk.id }}" sc-camel-on-pointer-down="{{ tokDown }}" sc-camel-on-pointer-move="{{ tokMove }}" sc-camel-on-pointer-up="{{ tokUp }}" sc-camel-on-double-click="{{ tokDel }}">{{ tk.tag }}</div>
+              </sc-for>
+            </div>
+            <textarea class="input" rows="3" placeholder="Describe the movement: trigger, runs, end product…" value="{{ b.notes }}" data-sec="boards" data-id="{{ b.id }}" data-field="notes" sc-camel-on-change="{{ onField }}"></textarea>
+            <div data-np="" class="text-muted" style="font-size: 11px">Drag pieces to move · double-click a piece to remove it · positions save automatically</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <div style="display: flex; align-items: center; gap: 12px">
+          <h4 style="margin: 0">Set pieces</h4>
+          <span style="flex: 1"></span>
+          <button data-np="" class="btn btn-primary" sc-camel-on-click="{{ addSetpiece }}">+ New set piece</button>
+        </div>
+        <sc-if value="{{ noSetpieces }}" hint-placeholder-val="{{ false }}"><p class="text-muted" style="font-size: 14px; margin: 0">Corners, free kicks, kick-offs — design your routines here.</p></sc-if>
+        <sc-for list="{{ setpiecesView }}" as="b" hint-placeholder-count="1">
+          <div class="card elev-sm">
+            <div data-np="" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+              <input class="input" value="{{ b.name }}" data-sec="boards" data-id="{{ b.id }}" data-field="name" sc-camel-on-change="{{ onField }}" style="flex: 1; min-width: 200px; font-family: var(--font-heading)">
+              <button class="btn btn-secondary" sc-camel-on-click="{{ b.addHome }}">+ Us</button>
+              <button class="btn btn-secondary" sc-camel-on-click="{{ b.addAway }}">+ Opp</button>
+              <button class="btn btn-secondary" sc-camel-on-click="{{ b.addBall }}">+ Ball</button>
+              <button class="btn btn-ghost" sc-camel-on-click="{{ b.reset }}">Reset 11v11</button>
+              <button class="btn btn-ghost" sc-camel-on-click="{{ b.del }}" style="color: var(--color-neutral-500)">Delete</button>
+            </div>
+            <div data-np="" style="display: flex; align-items: center; gap: 4px; flex-wrap: wrap">
+              <sc-for list="{{ b.tools }}" as="tl" hint-placeholder-count="5">
+                <button class="btn" sc-camel-on-click="{{ tl.set }}" style="{{ tl.style }}">{{ tl.label }}</button>
+              </sc-for>
+              <span style="flex: 1"></span>
+              <button class="btn btn-ghost" sc-camel-on-click="{{ b.undo }}" style="padding: 3px 10px; font-size: 12px">Undo</button>
+              <button class="btn btn-ghost" sc-camel-on-click="{{ b.clearDraw }}" style="padding: 3px 10px; font-size: 12px; color: var(--color-neutral-500)">Clear drawings</button>
+            </div>
+            <div style="position: relative; aspect-ratio: 105 / 68; border-radius: var(--radius-md); overflow: hidden; touch-action: none; background: radial-gradient(120% 130% at 50% 30%, var(--color-neutral-900), var(--color-bg))" data-bid="{{ b.id }}" data-vw="105" sc-camel-on-pointer-down="{{ drawDown }}" sc-camel-on-pointer-move="{{ drawMove }}" sc-camel-on-pointer-up="{{ drawUp }}">
+              <svg sc-camel-view-box="0 0 105 68" sc-camel-preserve-aspect-ratio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
+                <g fill="none" stroke="rgba(233,233,237,0.16)" stroke-width="0.5">
+                  <rect x="2" y="2" width="101" height="64" rx="1"></rect>
+                  <line x1="52.5" y1="2" x2="52.5" y2="66"></line>
+                  <circle cx="52.5" cy="34" r="9.15"></circle>
+                  <rect x="2" y="13.85" width="16.5" height="40.3"></rect>
+                  <rect x="86.5" y="13.85" width="16.5" height="40.3"></rect>
+                  <rect x="2" y="24.84" width="5.5" height="18.32"></rect>
+                  <rect x="97.5" y="24.84" width="5.5" height="18.32"></rect>
+                </g>
+                <circle cx="13" cy="34" r="0.5" fill="rgba(233,233,237,0.16)"></circle>
+                <circle cx="92" cy="34" r="0.5" fill="rgba(233,233,237,0.16)"></circle>
+              </svg>
+              <svg sc-camel-view-box="0 0 105 68" sc-camel-preserve-aspect-ratio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
+                <sc-for list="{{ b.shapes }}" as="sh" hint-placeholder-count="1">
+                  <path d="{{ sh.d }}" fill="none" stroke="var(--color-accent-400)" stroke-width="{{ sh.w }}" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"></path>
+                </sc-for>
+              </svg>
+              <sc-for list="{{ b.tokens }}" as="tk" hint-placeholder-count="2">
+                <div style="{{ tk.style }}" data-bid="{{ b.id }}" data-tid="{{ tk.id }}" sc-camel-on-pointer-down="{{ tokDown }}" sc-camel-on-pointer-move="{{ tokMove }}" sc-camel-on-pointer-up="{{ tokUp }}" sc-camel-on-double-click="{{ tokDel }}">{{ tk.tag }}</div>
+              </sc-for>
+            </div>
+            <textarea class="input" rows="3" placeholder="Delivery, runs, second-ball plan…" value="{{ b.notes }}" data-sec="boards" data-id="{{ b.id }}" data-field="notes" sc-camel-on-change="{{ onField }}"></textarea>
+            <div data-np="" class="text-muted" style="font-size: 11px">Drag pieces to move · double-click a piece to remove it</div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- ══ PLAYERS & IDPs ══ -->
+  <sc-if value="{{ tabPlayers }}" hint-placeholder-val="{{ false }}">
+    <section style="display: flex; flex-direction: column; gap: 14px">
+      <div style="display: flex; align-items: center; gap: 12px">
+        <h3 style="margin: 0">Squad &amp; individual development plans</h3>
+        <span class="tag tag-neutral">{{ playerCount }}</span>
+        <span style="flex: 1"></span>
+        <button data-np="" class="btn btn-primary" sc-camel-on-click="{{ addPlayer }}">+ Add player</button>
+      </div>
+      <sc-if value="{{ noPlayers }}" hint-placeholder-val="{{ false }}">
+        <p class="text-muted" style="font-size: 14px">Add your squad here. Players also appear automatically in match ratings and the physical-milestone tables.</p>
+      </sc-if>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 12px">
+        <sc-for list="{{ playersView }}" as="p" hint-placeholder-count="4">
+          <div class="card elev-sm">
+            <div style="display: flex; gap: 8px">
+              <input class="input" placeholder="#" value="{{ p.num }}" data-sec="players" data-id="{{ p.id }}" data-field="num" sc-camel-on-change="{{ onField }}" aria-label="Squad number" style="width: 52px; text-align: center">
+              <input class="input" placeholder="Player name" value="{{ p.name }}" data-sec="players" data-id="{{ p.id }}" data-field="name" sc-camel-on-change="{{ onField }}" style="flex: 1; font-family: var(--font-heading)">
+              <input class="input" placeholder="Position" value="{{ p.pos }}" data-sec="players" data-id="{{ p.id }}" data-field="pos" sc-camel-on-change="{{ onField }}" style="width: 90px">
+            </div>
+            <details>
+              <summary style="font-size: 12px; color: var(--color-accent); padding: 2px 0">Development plan</summary>
+              <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px">
+                <div class="field"><label>Strengths</label><textarea class="input" rows="2" value="{{ p.strengths }}" data-sec="players" data-id="{{ p.id }}" data-field="strengths" sc-camel-on-change="{{ onField }}"></textarea></div>
+                <div class="field"><label>Areas to develop</label><textarea class="input" rows="2" value="{{ p.develop }}" data-sec="players" data-id="{{ p.id }}" data-field="develop" sc-camel-on-change="{{ onField }}"></textarea></div>
+                <div class="field"><label>Season targets</label><textarea class="input" rows="2" value="{{ p.goals }}" data-sec="players" data-id="{{ p.id }}" data-field="goals" sc-camel-on-change="{{ onField }}"></textarea></div>
+                <div class="field"><label>Review notes</label><textarea class="input" rows="2" placeholder="Progress check-ins through the season…" value="{{ p.review }}" data-sec="players" data-id="{{ p.id }}" data-field="review" sc-camel-on-change="{{ onField }}"></textarea></div>
+                <button data-np="" class="btn btn-ghost" sc-camel-on-click="{{ p.del }}" style="align-self: flex-end; color: var(--color-neutral-500)">Remove player</button>
+              </div>
+            </details>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- ══ TACTICS BOARD ══ -->
+  <sc-if value="{{ tabBoards }}" hint-placeholder-val="{{ false }}">
+    <section style="display: flex; flex-direction: column; gap: 14px">
+      <div style="display: flex; align-items: center; gap: 12px">
+        <h3 style="margin: 0">Tactics boards</h3>
+        <span style="flex: 1"></span>
+        <button data-np="" class="btn btn-primary" sc-camel-on-click="{{ addBoard }}">+ New board</button>
+      </div>
+      <sc-if value="{{ noBoards }}" hint-placeholder-val="{{ false }}">
+        <p class="text-muted" style="font-size: 14px">Create a board for your formation, match plans or half-time adjustments. Every board keeps its own arrangement.</p>
+      </sc-if>
+      <sc-for list="{{ boardsView }}" as="b" hint-placeholder-count="1">
+        <div class="card elev-sm">
+          <div data-np="" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+            <input class="input" value="{{ b.name }}" data-sec="boards" data-id="{{ b.id }}" data-field="name" sc-camel-on-change="{{ onField }}" style="flex: 1; min-width: 200px; font-family: var(--font-heading)">
+            <button class="btn btn-secondary" sc-camel-on-click="{{ b.addHome }}">+ Us</button>
+            <button class="btn btn-secondary" sc-camel-on-click="{{ b.addAway }}">+ Opp</button>
+            <button class="btn btn-secondary" sc-camel-on-click="{{ b.addBall }}">+ Ball</button>
+            <button class="btn btn-ghost" sc-camel-on-click="{{ b.reset }}">Reset 11v11</button>
+            <button class="btn btn-ghost" sc-camel-on-click="{{ b.del }}" style="color: var(--color-neutral-500)">Delete</button>
+          </div>
+          <div data-np="" style="display: flex; align-items: center; gap: 4px; flex-wrap: wrap">
+              <sc-for list="{{ b.tools }}" as="tl" hint-placeholder-count="5">
+                <button class="btn" sc-camel-on-click="{{ tl.set }}" style="{{ tl.style }}">{{ tl.label }}</button>
+              </sc-for>
+              <span style="flex: 1"></span>
+              <button class="btn btn-ghost" sc-camel-on-click="{{ b.undo }}" style="padding: 3px 10px; font-size: 12px">Undo</button>
+              <button class="btn btn-ghost" sc-camel-on-click="{{ b.clearDraw }}" style="padding: 3px 10px; font-size: 12px; color: var(--color-neutral-500)">Clear drawings</button>
+            </div>
+            <div style="position: relative; aspect-ratio: 105 / 68; border-radius: var(--radius-md); overflow: hidden; touch-action: none; background: radial-gradient(120% 130% at 50% 30%, var(--color-neutral-900), var(--color-bg))" data-bid="{{ b.id }}" data-vw="105" sc-camel-on-pointer-down="{{ drawDown }}" sc-camel-on-pointer-move="{{ drawMove }}" sc-camel-on-pointer-up="{{ drawUp }}">
+            <svg sc-camel-view-box="0 0 105 68" sc-camel-preserve-aspect-ratio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
+              <g fill="none" stroke="rgba(233,233,237,0.16)" stroke-width="0.5">
+                <rect x="2" y="2" width="101" height="64" rx="1"></rect>
+                <line x1="52.5" y1="2" x2="52.5" y2="66"></line>
+                <circle cx="52.5" cy="34" r="9.15"></circle>
+                <rect x="2" y="13.85" width="16.5" height="40.3"></rect>
+                <rect x="86.5" y="13.85" width="16.5" height="40.3"></rect>
+                <rect x="2" y="24.84" width="5.5" height="18.32"></rect>
+                <rect x="97.5" y="24.84" width="5.5" height="18.32"></rect>
+              </g>
+              <circle cx="13" cy="34" r="0.5" fill="rgba(233,233,237,0.16)"></circle>
+              <circle cx="92" cy="34" r="0.5" fill="rgba(233,233,237,0.16)"></circle>
+            </svg>
+            <svg sc-camel-view-box="0 0 105 68" sc-camel-preserve-aspect-ratio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
+                <sc-for list="{{ b.shapes }}" as="sh" hint-placeholder-count="1">
+                  <path d="{{ sh.d }}" fill="none" stroke="var(--color-accent-400)" stroke-width="{{ sh.w }}" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"></path>
+                </sc-for>
+              </svg>
+              <sc-for list="{{ b.tokens }}" as="tk" hint-placeholder-count="2">
+              <div style="{{ tk.style }}" data-bid="{{ b.id }}" data-tid="{{ tk.id }}" sc-camel-on-pointer-down="{{ tokDown }}" sc-camel-on-pointer-move="{{ tokMove }}" sc-camel-on-pointer-up="{{ tokUp }}" sc-camel-on-double-click="{{ tokDel }}">{{ tk.tag }}</div>
+            </sc-for>
+          </div>
+          <textarea class="input" rows="3" placeholder="Notes on this shape / plan…" value="{{ b.notes }}" data-sec="boards" data-id="{{ b.id }}" data-field="notes" sc-camel-on-change="{{ onField }}"></textarea>
+          <div data-np="" class="text-muted" style="font-size: 11px">Drag pieces to move · double-click a piece to remove it · positions save automatically</div>
+        </div>
+      </sc-for>
+    </section>
+  </sc-if>
+
+  <!-- ══ MATCHES ══ -->
+  <sc-if value="{{ tabMatches }}" hint-placeholder-val="{{ false }}">
+    <section style="display: flex; flex-direction: column; gap: 14px">
+      <div style="display: flex; align-items: center; gap: 12px">
+        <h3 style="margin: 0">Match reviews</h3>
+        <span class="tag tag-neutral">{{ matchCount }}</span>
+        <span style="flex: 1"></span>
+        <button data-np="" class="btn btn-primary" sc-camel-on-click="{{ addMatch }}">+ New match</button>
+      </div>
+      <sc-if value="{{ noMatches }}" hint-placeholder-val="{{ false }}">
+        <p class="text-muted" style="font-size: 14px">Log each fixture — result, lineup, key moments and player ratings — so you can review the season as it builds.</p>
+      </sc-if>
+      <sc-for list="{{ matchesView }}" as="m" hint-placeholder-count="2">
+        <details class="card elev-sm">
+          <summary style="display: flex; align-items: center; gap: 12px; padding: 4px 2px">
+            <span class="tag tag-accent">{{ m.date }}</span>
+            <span style="font-family: var(--font-heading); font-size: 16px">vs {{ m.opponent }}</span>
+            <span style="flex: 1"></span>
+            <span style="font-family: var(--font-heading); font-size: 18px; color: var(--color-accent-300)">{{ m.scoreFor }} – {{ m.scoreAgainst }}</span>
+          </summary>
+          <div style="display: grid; grid-template-columns: 150px 1fr 1fr 90px 90px 120px; gap: 10px; margin-top: 10px">
+            <div class="field"><label>Date</label><input class="input" type="date" value="{{ m.date }}" data-sec="matches" data-id="{{ m.id }}" data-field="date" sc-camel-on-change="{{ onField }}"></div>
+            <div class="field"><label>Opponent</label><input class="input" value="{{ m.opponent }}" data-sec="matches" data-id="{{ m.id }}" data-field="opponent" sc-camel-on-change="{{ onField }}"></div>
+            <div class="field"><label>Venue</label><input class="input" value="{{ m.venue }}" data-sec="matches" data-id="{{ m.id }}" data-field="venue" sc-camel-on-change="{{ onField }}"></div>
+            <div class="field"><label>Us</label><input class="input" type="number" value="{{ m.scoreFor }}" data-sec="matches" data-id="{{ m.id }}" data-field="scoreFor" sc-camel-on-change="{{ onField }}"></div>
+            <div class="field"><label>Them</label><input class="input" type="number" value="{{ m.scoreAgainst }}" data-sec="matches" data-id="{{ m.id }}" data-field="scoreAgainst" sc-camel-on-change="{{ onField }}"></div>
+            <div class="field"><label>Formation</label><input class="input" placeholder="4-3-3" value="{{ m.formation }}" data-sec="matches" data-id="{{ m.id }}" data-field="formation" sc-camel-on-change="{{ onField }}"></div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-top: 14px">
+            <span style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-neutral-500)">Lineup</span>
+            <span class="tag tag-neutral">{{ m.lineupCount }}</span>
+          </div>
+          <div style="position: relative; aspect-ratio: 105 / 68; border-radius: var(--radius-md); overflow: hidden; touch-action: none; margin-top: 6px; background: radial-gradient(120% 130% at 50% 30%, var(--color-neutral-900), var(--color-bg))">
+            <svg sc-camel-view-box="0 0 105 68" sc-camel-preserve-aspect-ratio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
+              <g fill="none" stroke="rgba(233,233,237,0.16)" stroke-width="0.5">
+                <rect x="2" y="2" width="101" height="64" rx="1"></rect>
+                <line x1="52.5" y1="2" x2="52.5" y2="66"></line>
+                <circle cx="52.5" cy="34" r="9.15"></circle>
+                <rect x="2" y="13.85" width="16.5" height="40.3"></rect>
+                <rect x="86.5" y="13.85" width="16.5" height="40.3"></rect>
+                <rect x="2" y="24.84" width="5.5" height="18.32"></rect>
+                <rect x="97.5" y="24.84" width="5.5" height="18.32"></rect>
+              </g>
+              <circle cx="13" cy="34" r="0.5" fill="rgba(233,233,237,0.16)"></circle>
+              <circle cx="92" cy="34" r="0.5" fill="rgba(233,233,237,0.16)"></circle>
+            </svg>
+            <sc-for list="{{ m.pitchTokens }}" as="tk" hint-placeholder-count="2">
+              <div style="{{ tk.style }}" data-mid="{{ m.id }}" data-tid="{{ tk.pid }}" sc-camel-on-pointer-down="{{ tokDown }}" sc-camel-on-pointer-move="{{ tokMove }}" sc-camel-on-pointer-up="{{ tokUp }}" sc-camel-on-double-click="{{ tokDel }}">
+                <div style="{{ tk.circle }}">{{ tk.num }}</div>
+                <div style="font-size: 10px; color: var(--color-neutral-300); white-space: nowrap; pointer-events: none">{{ tk.name }}</div>
+              </div>
+            </sc-for>
+          </div>
+          <div data-np="" style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 8px">
+            <span class="text-muted" style="font-size: 11px">Tap a player to place them · drag to position · double-click to send back:</span>
+            <sc-for list="{{ m.bench }}" as="bp" hint-placeholder-count="3">
+              <button class="btn btn-secondary" sc-camel-on-click="{{ bp.place }}" style="padding: 3px 10px; font-size: 12px">{{ bp.label }}</button>
+            </sc-for>
+            <sc-if value="{{ m.benchEmpty }}" hint-placeholder-val="{{ false }}"><span class="text-muted" style="font-size: 11px">whole squad placed</span></sc-if>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px">
+            <div class="field"><label>Subs &amp; lineup notes</label><textarea class="input" rows="4" placeholder="Substitutions, roles, in-game changes…" value="{{ m.lineup }}" data-sec="matches" data-id="{{ m.id }}" data-field="lineup" sc-camel-on-change="{{ onField }}"></textarea></div>
+            <div class="field"><label>Scorers &amp; assists</label><textarea class="input" rows="4" value="{{ m.scorers }}" data-sec="matches" data-id="{{ m.id }}" data-field="scorers" sc-camel-on-change="{{ onField }}"></textarea></div>
+            <div class="field"><label>Key moments / passages of play</label><textarea class="input" rows="4" value="{{ m.moments }}" data-sec="matches" data-id="{{ m.id }}" data-field="moments" sc-camel-on-change="{{ onField }}"></textarea></div>
+            <div class="field"><label>Opposition notes</label><textarea class="input" rows="4" placeholder="Shape, threats, weaknesses to target next time…" value="{{ m.opposition }}" data-sec="matches" data-id="{{ m.id }}" data-field="opposition" sc-camel-on-change="{{ onField }}"></textarea></div>
+          </div>
+          <div style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-neutral-500); margin-top: 12px">Player ratings</div>
+          <sc-if value="{{ noPlayers }}" hint-placeholder-val="{{ false }}"><p class="text-muted" style="font-size: 13px; margin: 4px 0 0">Add players in the Players tab to rate them here.</p></sc-if>
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px; margin-top: 4px">
+            <sc-for list="{{ m.ratingRows }}" as="r" hint-placeholder-count="3">
+              <div style="display: flex; align-items: center; gap: 8px; background: var(--color-neutral-900); border-radius: var(--radius-sm); padding: 6px 10px">
+                <span style="flex: 1; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{ r.name }}</span>
+                <input class="input" type="number" min="1" max="10" value="{{ r.val }}" data-sec="rating" data-id="{{ m.id }}" data-field="{{ r.pid }}" sc-camel-on-change="{{ onField }}" aria-label="Rating" style="width: 60px; min-height: 28px; padding: 2px 8px; text-align: center">
+              </div>
+            </sc-for>
+          </div>
+          <div data-np="" style="display: flex; justify-content: flex-end; margin-top: 6px">
+            <button class="btn btn-ghost" sc-camel-on-click="{{ m.del }}" style="color: var(--color-neutral-500)">Delete match</button>
+          </div>
+        </details>
+      </sc-for>
+    </section>
+  </sc-if>
+
+  <!-- ══ PHYSICAL ══ -->
+  <sc-if value="{{ tabPhysical }}" hint-placeholder-val="{{ false }}">
+    <section style="display: flex; flex-direction: column; gap: 14px">
+      <div style="display: flex; align-items: center; gap: 12px">
+        <h3 style="margin: 0">Physical milestones</h3>
+        <span style="flex: 1"></span>
+        <button data-np="" class="btn btn-primary" sc-camel-on-click="{{ addTest }}">+ New test</button>
+      </div>
+      <sc-if value="{{ noPlayers }}" hint-placeholder-val="{{ false }}">
+        <p class="text-muted" style="font-size: 14px">Add players in the Players tab first — each test table lists the whole squad.</p>
+      </sc-if>
+      <sc-for list="{{ testsView }}" as="t" hint-placeholder-count="2">
+        <div class="card elev-sm">
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+            <input class="input" value="{{ t.name }}" data-sec="tests" data-id="{{ t.id }}" data-field="name" sc-camel-on-change="{{ onField }}" style="width: 220px; font-family: var(--font-heading)">
+            <input class="input" value="{{ t.unit }}" data-sec="tests" data-id="{{ t.id }}" data-field="unit" sc-camel-on-change="{{ onField }}" aria-label="Unit" style="width: 110px; font-size: 12px">
+            <span style="flex: 1"></span>
+            <button data-np="" class="btn btn-secondary" sc-camel-on-click="{{ t.addDate }}">+ Test date</button>
+            <button data-np="" class="btn btn-ghost" sc-camel-on-click="{{ t.del }}" style="color: var(--color-neutral-500)">Delete</button>
+          </div>
+          <sc-if value="{{ t.hasDates }}" hint-placeholder-val="{{ true }}">
+            <div style="overflow-x: auto">
+              <sc-raw-table class="table">
+                <sc-raw-thead>
+                  <sc-raw-tr>
+                    <sc-raw-th style="min-width: 160px">Player</sc-raw-th>
+                    <sc-for list="{{ t.cols }}" as="c" hint-placeholder-count="2">
+                      <sc-raw-th><input class="input" type="date" value="{{ c.label }}" data-sec="physdate" data-id="{{ t.id }}" data-field="{{ c.i }}" sc-camel-on-change="{{ onField }}" style="min-height: 28px; padding: 2px 6px; font-size: 12px; width: 140px"></sc-raw-th>
+                    </sc-for>
+                  </sc-raw-tr>
+                </sc-raw-thead>
+                <sc-raw-tbody>
+                  <sc-for list="{{ t.rows }}" as="row" hint-placeholder-count="4">
+                    <sc-raw-tr>
+                      <sc-raw-td>{{ row.name }}</sc-raw-td>
+                      <sc-for list="{{ row.cells }}" as="cell" hint-placeholder-count="2">
+                        <sc-raw-td><input class="input" value="{{ cell.val }}" data-sec="phys" data-id="{{ t.id }}" data-field="{{ cell.key }}" sc-camel-on-change="{{ onField }}" aria-label="Result" style="min-height: 28px; padding: 2px 8px; font-size: 13px; width: 100px"></sc-raw-td>
+                      </sc-for>
+                    </sc-raw-tr>
+                  </sc-for>
+                </sc-raw-tbody>
+              </sc-raw-table>
+            </div>
+          </sc-if>
+          <sc-if value="{{ t.noDates }}" hint-placeholder-val="{{ false }}">
+            <p class="text-muted" style="font-size: 13px; margin: 0">No test dates yet — add one to start recording results.</p>
+          </sc-if>
+        </div>
+      </sc-for>
+    </section>
+  </sc-if>
+</div>
+</x-dc>
+<script>
+/* NBSync — cross-device sync + access gate.
+   Notebook data lives in data.json on the `data` branch of the GitHub repo
+   (kept off `main` so saves don't trigger Pages rebuilds). The passcode only
+   gates the UI — the repo is public — while editing requires a fine-grained
+   GitHub token (Contents read/write on this repo), pasted once per device. */
+window.NBSync = (() => {
+  const OWNER = 'finjimcam', REPO = 'bsc-26-27-season-notebook', BRANCH = 'data', FILE = 'data.json';
+  const API = 'https://api.github.com/repos/' + OWNER + '/' + REPO + '/contents/' + FILE;
+  const K_DATA = 'bsc-football-notebook-v1', K_TOKEN = 'nb-token-v1', K_GATEOK = 'nb-gate-ok-v1', K_UPDATED = 'nb-updated-v1';
+
+  const ls = {
+    get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
+    del(k) { try { localStorage.removeItem(k); } catch (e) {} }
+  };
+
+  let token = ls.get(K_TOKEN) || '';
+  let sha = null;      // blob sha of data.json on the data branch
+  let doc;             // last remote doc {gate, updated, data}; null = no file yet; undefined = unknown
+  let loaded = false;  // first remote fetch finished (even if 404)
+  let comp = null;     // the notebook component instance
+  let dirty = false;
+  let pushTimer = null;
+  let pushing = false;
+  let status = 'loading';
+
+  const canEdit = () => !!token;
+  const hasLocalData = () => !!ls.get(K_DATA);
+  // Pre-sync installs never wrote a timestamp; treat existing data as barely
+  // newer than the empty initial doc (updated: 0) so it migrates upward.
+  const localUpdated = () => Number(ls.get(K_UPDATED)) || (hasLocalData() ? 1 : 0);
+
+  const b64enc = (s) => {
+    const b = new TextEncoder().encode(s);
+    let bin = '';
+    for (let i = 0; i < b.length; i += 0x8000) bin += String.fromCharCode.apply(null, b.subarray(i, i + 0x8000));
+    return btoa(bin);
+  };
+  const b64dec = (s) => new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\s/g, '')), c => c.charCodeAt(0)));
+  const sha256 = async (s) => {
+    const d = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
+    return Array.from(new Uint8Array(d)).map(x => x.toString(16).padStart(2, '0')).join('');
+  };
+  const headers = () => {
+    const h = { 'Accept': 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' };
+    if (token) h['Authorization'] = 'Bearer ' + token;
+    return h;
+  };
+
+  const domReady = new Promise(res => {
+    if (document.body) res();
+    else document.addEventListener('DOMContentLoaded', () => res());
+  });
+
+  /* ---- status chip + panel ---- */
+  let chip = null, panel = null;
+  const LABELS = { loading: 'Connecting…', synced: 'Synced', saving: 'Saving…', view: 'View only', offline: 'Offline — local copy', error: 'Sync error — retrying' };
+  const DOTS = { loading: 'var(--color-neutral-500)', synced: 'var(--color-accent)', saving: 'var(--color-accent-300)', view: 'var(--color-neutral-500)', offline: '#c9a227', error: '#c0504d' };
+  function setStatus(s) {
+    status = s;
+    if (chip) {
+      chip.querySelector('i').style.background = DOTS[s] || 'gray';
+      chip.querySelector('b').textContent = LABELS[s] || s;
+    }
+  }
+
+  const BTN = 'background:var(--color-neutral-900,#0d0e14);border:1px solid var(--color-divider,#2a2d3a);color:var(--color-neutral-200,#d5d7e0);border-radius:8px;padding:8px 12px;font-size:13px;cursor:pointer;text-align:left';
+  const BTN_PRIMARY = 'background:var(--color-accent-800,#3d3766);border:1px solid var(--color-accent-400,#7a6fc4);color:var(--color-accent-100,#e6e2f7);border-radius:8px;padding:10px;font-size:14px;cursor:pointer';
+  const INPUT = 'width:100%;box-sizing:border-box;background:var(--color-neutral-900,#0d0e14);border:1px solid var(--color-divider,#2a2d3a);border-radius:8px;color:inherit;padding:10px 12px;font-size:15px;font-family:inherit';
+
+  function overlay(inner) {
+    const o = document.createElement('div');
+    o.setAttribute('data-np', '');
+    o.style.cssText = 'position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;background:rgba(10,11,16,0.88);backdrop-filter:blur(6px)';
+    o.appendChild(inner);
+    document.body.appendChild(o);
+    return o;
+  }
+  function card() {
+    const c = document.createElement('div');
+    c.style.cssText = 'background:var(--color-surface,#14161f);border:1px solid var(--color-divider,#2a2d3a);border-radius:12px;padding:26px 28px;max-width:340px;width:calc(100% - 48px);font-family:var(--font-body,sans-serif);color:var(--color-text,#e8e9ef)';
+    return c;
+  }
+
+  /* ---- passcode gate ---- */
+  let gateEl = null;
+  function showGate() {
+    if (gateEl) return;
+    const c = card();
+    c.innerHTML =
+      '<div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-accent,#9184d9);margin-bottom:8px">Season notebook</div>' +
+      '<div style="font-family:var(--font-heading,inherit);font-size:20px;margin-bottom:14px">Enter passcode</div>' +
+      '<input type="password" autocomplete="current-password" style="' + INPUT + '">' +
+      '<div data-err style="color:#c0504d;font-size:12px;min-height:16px;margin-top:6px"></div>' +
+      '<button style="width:100%;margin-top:6px;' + BTN_PRIMARY + '">Open notebook</button>';
+    const input = c.querySelector('input'), err = c.querySelector('[data-err]'), btn = c.querySelector('button');
+    const submit = async () => {
+      if (!loaded) { err.textContent = 'Still connecting — try again in a moment.'; return; }
+      const gate = doc && doc.gate;
+      if (!gate) { hideGate(); return; }
+      if (await sha256(input.value) === gate) { ls.set(K_GATEOK, gate); hideGate(); }
+      else { err.textContent = 'Wrong passcode.'; input.select(); }
+    };
+    btn.addEventListener('click', submit);
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') submit(); });
+    gateEl = overlay(c);
+    input.focus();
+  }
+  function hideGate() { if (gateEl) { gateEl.remove(); gateEl = null; } }
+  function applyGate() {
+    const gate = doc && doc.gate;
+    if (gate && ls.get(K_GATEOK) !== gate) showGate();
+    else if (loaded) hideGate();
+  }
+
+  /* ---- edit token ---- */
+  function showTokenModal() {
+    closePanel();
+    const c = card();
+    c.innerHTML =
+      '<div style="font-family:var(--font-heading,inherit);font-size:20px;margin-bottom:10px">Enable editing</div>' +
+      '<p style="font-size:13px;color:var(--color-neutral-400,#9a9db1);margin:0 0 12px;line-height:1.5">Paste a GitHub fine-grained token with <b>Contents read &amp; write</b> access to the notebook repo. It is stored only on this device.</p>' +
+      '<input type="password" placeholder="github_pat_…" autocomplete="off" style="' + INPUT + '">' +
+      '<div data-err style="color:#c0504d;font-size:12px;min-height:16px;margin-top:6px"></div>' +
+      '<div style="display:flex;gap:8px;margin-top:6px">' +
+      '<button data-ok style="flex:1;' + BTN_PRIMARY + '">Save</button>' +
+      '<button data-cancel style="' + BTN + '">Cancel</button></div>';
+    const o = overlay(c);
+    const input = c.querySelector('input'), err = c.querySelector('[data-err]');
+    c.querySelector('[data-cancel]').addEventListener('click', () => o.remove());
+    const submit = async () => {
+      const t = input.value.trim();
+      if (!t) { err.textContent = 'Paste a token first.'; return; }
+      err.textContent = 'Checking…';
+      try {
+        const r = await fetch('https://api.github.com/repos/' + OWNER + '/' + REPO, {
+          headers: { 'Accept': 'application/vnd.github+json', 'Authorization': 'Bearer ' + t }
+        });
+        if (!r.ok) { err.textContent = 'GitHub rejected that token (HTTP ' + r.status + ').'; return; }
+        const j = await r.json();
+        if (j.permissions && !j.permissions.push) { err.textContent = 'Token has no write access to the repo.'; return; }
+      } catch (e) { err.textContent = 'Could not reach GitHub — are you online?'; return; }
+      token = t;
+      ls.set(K_TOKEN, t);
+      document.body.classList.remove('view-only');
+      o.remove();
+      setStatus(dirty ? 'saving' : 'synced');
+      if (comp) comp.forceUpdate();
+      loadRemote();
+    };
+    c.querySelector('[data-ok]').addEventListener('click', submit);
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') submit(); });
+    input.focus();
+  }
+
+  /* ---- passcode management (edit mode) ---- */
+  function showPasscodeModal() {
+    closePanel();
+    const c = card();
+    const hasGate = !!(doc && doc.gate);
+    c.innerHTML =
+      '<div style="font-family:var(--font-heading,inherit);font-size:20px;margin-bottom:10px">' + (hasGate ? 'Change' : 'Set') + ' passcode</div>' +
+      '<p style="font-size:13px;color:var(--color-neutral-400,#9a9db1);margin:0 0 12px;line-height:1.5">Anyone opening the site is asked for this before the notebook is shown. Share it with people you want to give view access.</p>' +
+      '<input type="text" autocomplete="off" placeholder="New passcode" style="' + INPUT + '">' +
+      '<div data-err style="color:#c0504d;font-size:12px;min-height:16px;margin-top:6px"></div>' +
+      '<div style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap">' +
+      '<button data-ok style="flex:1;' + BTN_PRIMARY + '">Save</button>' +
+      (hasGate ? '<button data-rm style="' + BTN + '">Remove passcode</button>' : '') +
+      '<button data-cancel style="' + BTN + '">Cancel</button></div>';
+    const o = overlay(c);
+    const input = c.querySelector('input'), err = c.querySelector('[data-err]');
+    c.querySelector('[data-cancel]').addEventListener('click', () => o.remove());
+    const apply = async (pc) => {
+      err.textContent = 'Saving…';
+      const gate = pc ? await sha256(pc) : null;
+      if (!doc) doc = { gate: null, updated: 0, data: null };
+      doc.gate = gate;
+      if (gate) ls.set(K_GATEOK, gate); else ls.del(K_GATEOK);
+      dirty = true;
+      await pushNow();
+      if (status === 'error') { err.textContent = 'Could not save — check your connection.'; return; }
+      o.remove();
+    };
+    c.querySelector('[data-ok]').addEventListener('click', () => {
+      const pc = input.value.trim();
+      if (!pc) { err.textContent = 'Type a passcode (or Cancel).'; return; }
+      apply(pc);
+    });
+    const rm = c.querySelector('[data-rm]');
+    if (rm) rm.addEventListener('click', () => apply(''));
+    input.focus();
+  }
+
+  /* ---- chip / panel ---- */
+  function closePanel() { if (panel) { panel.remove(); panel = null; } }
+  function buildPanel() {
+    panel = document.createElement('div');
+    panel.setAttribute('data-np', '');
+    panel.style.cssText = 'position:fixed;right:14px;bottom:54px;z-index:900;display:flex;flex-direction:column;gap:6px;background:var(--color-surface,#14161f);border:1px solid var(--color-divider,#2a2d3a);border-radius:12px;padding:10px;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,0.4)';
+    const mk = (label, fn) => {
+      const b = document.createElement('button');
+      b.style.cssText = BTN;
+      b.textContent = label;
+      b.addEventListener('click', fn);
+      panel.appendChild(b);
+    };
+    if (!canEdit()) {
+      mk('Enable editing…', showTokenModal);
+    } else {
+      mk('Sync now', () => { closePanel(); syncNow(); });
+      mk((doc && doc.gate ? 'Change' : 'Set') + ' passcode…', showPasscodeModal);
+      mk('Turn off editing on this device', () => {
+        closePanel();
+        token = '';
+        ls.del(K_TOKEN);
+        document.body.classList.add('view-only');
+        setStatus('view');
+        if (comp) comp.forceUpdate();
+      });
+    }
+    document.body.appendChild(panel);
+  }
+  function initUI() {
+    chip = document.createElement('button');
+    chip.setAttribute('data-np', '');
+    chip.setAttribute('aria-label', 'Sync status and settings');
+    chip.style.cssText = 'position:fixed;right:14px;bottom:14px;z-index:900;display:flex;align-items:center;gap:7px;background:var(--color-surface,#14161f);border:1px solid var(--color-divider,#2a2d3a);border-radius:999px;padding:7px 13px;color:var(--color-neutral-300,#c6c8d4);font-size:12px;font-family:var(--font-body,sans-serif);cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.35)';
+    chip.innerHTML = '<i style="width:8px;height:8px;border-radius:50%;background:gray;display:block"></i><b style="font-weight:500"></b>';
+    chip.addEventListener('click', () => { if (panel) closePanel(); else buildPanel(); });
+    document.body.appendChild(chip);
+    setStatus(status);
+  }
+
+  /* ---- remote load / reconcile ---- */
+  async function loadRemote() {
+    try {
+      const r = await fetch(API + '?ref=' + BRANCH + '&_=' + Date.now(), { headers: headers(), cache: 'no-store' });
+      if (r.status === 404) { doc = null; sha = null; }
+      else if (!r.ok) throw new Error('HTTP ' + r.status);
+      else {
+        const j = await r.json();
+        sha = j.sha;
+        doc = JSON.parse(b64dec(j.content || ''));
+      }
+      loaded = true;
+      if (!dirty) setStatus(canEdit() ? 'synced' : 'view');
+    } catch (e) {
+      if (!loaded) setStatus(hasLocalData() ? 'offline' : 'error');
+    }
+    await domReady;
+    applyGate();
+    reconcile();
+  }
+
+  function reconcile() {
+    if (!comp || !loaded) return;
+    const rU = (doc && doc.updated) || 0, lU = localUpdated();
+    if (doc && doc.data && rU > lU) {
+      comp.data = doc.data;
+      ls.set(K_DATA, JSON.stringify(doc.data));
+      ls.set(K_UPDATED, String(rU));
+      comp.forceUpdate();
+    } else if (canEdit() && hasLocalData() && lU > rU) {
+      // Local edits (or a pre-sync install) are ahead of the remote — push up.
+      dirty = true;
+      schedule();
+    }
+  }
+
+  /* ---- save path ---- */
+  function schedule() {
+    dirty = true;
+    if (!canEdit()) return;
+    setStatus('saving');
+    clearTimeout(pushTimer);
+    pushTimer = setTimeout(pushNow, 2500);
+  }
+
+  async function pushNow(opts) {
+    clearTimeout(pushTimer);
+    pushTimer = null;
+    if (!canEdit() || !comp) return;
+    if (pushing) { pushTimer = setTimeout(pushNow, 1500); return; }
+    pushing = true;
+    dirty = false;
+    try {
+      const newDoc = { gate: (doc && doc.gate) || null, updated: Date.now(), data: comp.data };
+      const body = { message: 'Update notebook data', branch: BRANCH, content: b64enc(JSON.stringify(newDoc)) };
+      if (sha) body.sha = sha;
+      const r = await fetch(API, {
+        method: 'PUT',
+        headers: Object.assign(headers(), { 'Content-Type': 'application/json' }),
+        body: JSON.stringify(body),
+        keepalive: !!(opts && opts.keepalive)
+      });
+      if (r.status === 409 || r.status === 422) {
+        // Stale sha (edit from another device landed first): refetch the sha
+        // and retry once, last write wins.
+        const g = await fetch(API + '?ref=' + BRANCH + '&_=' + Date.now(), { headers: headers(), cache: 'no-store' });
+        if (g.status === 404) sha = null;
+        else if (g.ok) sha = (await g.json()).sha;
+        if (!opts || !opts.retried) {
+          pushing = false;
+          return pushNow({ retried: true, keepalive: !!(opts && opts.keepalive) });
+        }
+        throw new Error('conflict');
+      }
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      const j = await r.json();
+      if (j.content && j.content.sha) sha = j.content.sha;
+      doc = newDoc;
+      ls.set(K_UPDATED, String(newDoc.updated));
+      if (!dirty) setStatus('synced');
+    } catch (e) {
+      dirty = true;
+      setStatus('error');
+      clearTimeout(pushTimer);
+      pushTimer = setTimeout(pushNow, 15000);
+    }
+    pushing = false;
+  }
+
+  async function syncNow() {
+    if (dirty) await pushNow();
+    else await loadRemote();
+  }
+
+  /* ---- wiring ---- */
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') {
+      if (dirty && canEdit()) pushNow({ keepalive: true });
+    } else if (!dirty && loaded) {
+      loadRemote(); // pick up edits made on the other device
+    }
+  });
+  window.addEventListener('pagehide', () => { if (dirty && canEdit()) pushNow({ keepalive: true }); });
+
+  domReady.then(() => {
+    if (!canEdit()) document.body.classList.add('view-only');
+    initUI();
+    // A device with no local data and no remembered passcode shows the gate
+    // immediately, so strangers never see the notebook UI while we connect.
+    if (!hasLocalData() && !ls.get(K_GATEOK)) showGate();
+  });
+  loadRemote();
+
+  return {
+    canEdit,
+    register(c) { comp = c; reconcile(); },
+    schedulePush: schedule
+  };
+})();
+</script>
+
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;tokenSize&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:28,&quot;min&quot;:20,&quot;max&quot;:40,&quot;step&quot;:2,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Tactics board&quot;},&quot;showNumbers&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Tactics board&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.KEY = 'bsc-football-notebook-v1';
+    let saved = null;
+    try { saved = JSON.parse(localStorage.getItem(this.KEY) || 'null'); } catch (e) {}
+    this.data = Object.assign({
+      team: 'BSC 2013s', season: '2026/27 Season · 11v11',
+      sessions: [], players: [], matches: [], boards: [],
+      phil: { objectives: '', build: '', attack: '', defend: '', transition: '' },
+      tests: [
+        { id: 't10', name: '10m Sprint', unit: 'seconds', dates: [], results: {} },
+        { id: 't30', name: '30m Sprint', unit: 'seconds', dates: [], results: {} },
+        { id: 't1k', name: '1km Run', unit: 'min:sec', dates: [], results: {} },
+        { id: 'tbp', name: 'Beep Test', unit: 'level', dates: [], results: {} }
+      ]
+    }, saved || {});
+    if (!this.data.phil) this.data.phil = { objectives: '', build: '', attack: '', defend: '', transition: '' };
+    this.state = { tab: 'sessions' };
+  }
+  componentDidMount() {
+    if (window.NBSync) window.NBSync.register(this);
+  }
+  canEdit() { return !window.NBSync || window.NBSync.canEdit(); }
+  /* In view-only mode, replace every action closure in the render vals with a
+     no-op so nothing can mutate data. Tab nav (`go`) and board tool selection
+     (`set`) stay live — they only touch view state. */
+  guardVals(v) {
+    if (this.canEdit()) return v;
+    const noop = () => {};
+    const walk = (o) => {
+      if (Array.isArray(o)) return o.map(walk);
+      if (o && typeof o === 'object') {
+        const r = {};
+        for (const k in o) r[k] = typeof o[k] === 'function' ? (k === 'go' || k === 'set' ? o[k] : noop) : walk(o[k]);
+        return r;
+      }
+      return o;
+    };
+    return walk(v);
+  }
+  uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
+  today() { return new Date().toISOString().slice(0, 10); }
+  save() {
+    clearTimeout(this._t);
+    this._t = setTimeout(() => {
+      try { localStorage.setItem(this.KEY, JSON.stringify(this.data)); } catch (e) {}
+      if (this.canEdit()) {
+        try { localStorage.setItem('nb-updated-v1', String(Date.now())); } catch (e) {}
+        if (window.NBSync) window.NBSync.schedulePush();
+      }
+    }, 250);
+  }
+  bump() { this.save(); this.forceUpdate(); }
+  onField = (e) => {
+    if (!this.canEdit()) return;
+    const el = e.currentTarget, { sec, id, field } = el.dataset, v = el.value;
+    const D = this.data;
+    if (sec === 'team') D.team = v;
+    else if (sec === 'season') D.season = v;
+    else if (sec === 'phil') D.phil[field] = v;
+    else if (sec === 'rating') { const m = D.matches.find(x => x.id === id); if (m) (m.ratings || (m.ratings = {}))[field] = v; }
+    else if (sec === 'phys') { const t = D.tests.find(x => x.id === id); if (t) { const [pid, di] = field.split('|'); (t.results[pid] || (t.results[pid] = {}))[di] = v; } }
+    else if (sec === 'physdate') { const t = D.tests.find(x => x.id === id); if (t) t.dates[+field] = v; }
+    else { const it = (D[sec] || []).find(x => x.id === id); if (it) it[field] = v; }
+    this.save(); this.forceUpdate();
+  };
+  tokDown = (e) => {
+    if (!this.canEdit()) return;
+    const el = e.currentTarget;
+    el.setPointerCapture(e.pointerId);
+    this._drag = { el, bid: el.dataset.bid, mid: el.dataset.mid, tid: el.dataset.tid };
+  };
+  tokMove = (e) => {
+    const d = this._drag;
+    if (!d || d.el !== e.currentTarget) return;
+    const r = d.el.parentElement.getBoundingClientRect();
+    d.x = Math.min(98, Math.max(2, (e.clientX - r.left) / r.width * 100));
+    d.y = Math.min(96, Math.max(4, (e.clientY - r.top) / r.height * 100));
+    d.el.style.left = d.x + '%';
+    d.el.style.top = d.y + '%';
+  };
+  tokUp = () => {
+    const d = this._drag;
+    if (d && d.x != null) {
+      if (d.mid) {
+        const m = this.data.matches.find(x => x.id === d.mid);
+        if (m && m.pitch && m.pitch[d.tid]) { m.pitch[d.tid] = { x: d.x, y: d.y }; this.save(); }
+      } else {
+        const b = this.data.boards.find(x => x.id === d.bid);
+        const t = b && b.tokens.find(x => x.id === d.tid);
+        if (t) { t.x = d.x; t.y = d.y; this.save(); }
+      }
+    }
+    this._drag = null;
+  };
+  tokDel = (e) => {
+    if (!this.canEdit()) return;
+    const { bid, mid, tid } = e.currentTarget.dataset;
+    if (mid) {
+      const m = this.data.matches.find(x => x.id === mid);
+      if (m && m.pitch) { delete m.pitch[tid]; this.bump(); }
+      return;
+    }
+    const b = this.data.boards.find(x => x.id === bid);
+    if (b) { b.tokens = b.tokens.filter(t => t.id !== tid); this.bump(); }
+  };
+  findBoard(id) { return this.data.boards.find(x => x.id === id); }
+  evPt(e, el) {
+    const r = el.getBoundingClientRect();
+    const fx = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
+    const fy = Math.min(1, Math.max(0, (e.clientY - r.top) / r.height));
+    const vw = parseFloat(el.dataset.vw) || 105;
+    return { x: fx * vw, y: fy * 68, px: fx * 100, py: fy * 100 };
+  }
+  toolFor(bid) { return (this.state.tools || {})[bid] || 'move'; }
+  setTool(bid, t) { this.setState(s => ({ tools: Object.assign({}, s.tools, { [bid]: t }) })); }
+  drawDown = (e) => {
+    if (!this.canEdit()) return;
+    const el = e.currentTarget, bid = el.dataset.bid, tool = this.toolFor(bid);
+    if (tool === 'move') return;
+    const p = this.evPt(e, el);
+    if (tool === 'cone') {
+      const b = this.findBoard(bid);
+      if (b) { b.tokens.push({ id: this.uid(), team: 'cone', x: p.px, y: p.py, label: '' }); this.bump(); }
+      return;
+    }
+    el.setPointerCapture(e.pointerId);
+    this._draw = { bid, shape: { type: tool, pts: [[p.x, p.y]] } };
+    this.forceUpdate();
+  };
+  drawMove = (e) => {
+    const d = this._draw;
+    if (!d || e.currentTarget.dataset.bid !== d.bid) return;
+    const p = this.evPt(e, e.currentTarget);
+    const pts = d.shape.pts;
+    if (d.shape.type === 'pen') {
+      const last = pts[pts.length - 1];
+      if (Math.hypot(p.x - last[0], p.y - last[1]) > 0.8) pts.push([p.x, p.y]);
+    } else {
+      pts[1] = [p.x, p.y];
+    }
+    this.forceUpdate();
+  };
+  drawUp = (e) => {
+    const d = this._draw;
+    if (!d) return;
+    this._draw = null;
+    const pts = d.shape.pts;
+    if (pts.length > 3 || (pts.length > 1 && Math.hypot(pts[pts.length - 1][0] - pts[0][0], pts[pts.length - 1][1] - pts[0][1]) > 1)) {
+      const b = this.findBoard(d.bid);
+      if (b) { (b.draw || (b.draw = [])).push(d.shape); this.save(); }
+    }
+    this.forceUpdate();
+  };
+  shapeD(sh) {
+    const pts = sh.pts;
+    let d = 'M ' + pts.map(p => p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' L ');
+    if (sh.type === 'arrow' && pts.length > 1) {
+      const [x1, y1] = pts[pts.length - 2], [x2, y2] = pts[pts.length - 1];
+      const a = Math.atan2(y2 - y1, x2 - x1), L = 2.4, S = 0.5;
+      const h1 = [x2 - L * Math.cos(a - S), y2 - L * Math.sin(a - S)];
+      const h2 = [x2 - L * Math.cos(a + S), y2 - L * Math.sin(a + S)];
+      d += ' M ' + h1[0].toFixed(1) + ' ' + h1[1].toFixed(1) + ' L ' + x2.toFixed(1) + ' ' + y2.toFixed(1) + ' L ' + h2[0].toFixed(1) + ' ' + h2[1].toFixed(1);
+    }
+    return d;
+  }
+  ensureSessionBoards(s) {
+    ['bDrill', 'bGrp', 'bGame'].forEach(k => {
+      if (!s[k] || !this.findBoard(s[k])) {
+        const b = { id: this.uid(), kind: 'half', name: '', notes: '', tokens: [], draw: [] };
+        this.data.boards.push(b);
+        s[k] = b.id;
+        this.save();
+      }
+    });
+  }
+  defaultTokens() {
+    const mk = (team, x, y, label) => ({ id: this.uid(), team, x, y, label });
+    const home = [[6, 50, '1'], [18, 14, '2'], [18, 38, '5'], [18, 62, '6'], [18, 86, '3'], [32, 25, '8'], [32, 50, '4'], [32, 75, '10'], [44, 20, '7'], [44, 50, '9'], [44, 80, '11']];
+    const away = home.map(([x, y, l]) => [100 - x, y, l]);
+    return home.map(([x, y, l]) => mk('home', x, y, l))
+      .concat(away.map(([x, y, l]) => mk('away', x, y, l)))
+      .concat([mk('ball', 50, 34, '')]);
+  }
+  addBoardOf(kind, name) {
+    this.data.boards.push({ id: this.uid(), kind, name, notes: '', tokens: this.defaultTokens() });
+    this.bump();
+  }
+  addTok(bid, team) {
+    const b = this.data.boards.find(x => x.id === bid);
+    if (!b) return;
+    const n = b.tokens.filter(t => t.team === team).length + 1;
+    b.tokens.push({ id: this.uid(), team, x: 50, y: 50, label: team === 'ball' ? '' : String(n) });
+    this.bump();
+  }
+  delItem(col, id) { this.data[col] = this.data[col].filter(x => x.id !== id); this.bump(); }
+  renderVals() {
+    const D = this.data, tab = this.state.tab;
+    const size = this.props.tokenSize ?? 28;
+    const showNum = this.props.showNumbers ?? true;
+    const tokStyle = (tk) => {
+      const s = tk.team === 'ball' ? Math.round(size * 0.55) : size;
+      const base = {
+        position: 'absolute', left: tk.x + '%', top: tk.y + '%', transform: 'translate(-50%,-50%)',
+        width: s + 'px', height: s + 'px', borderRadius: '50%', display: 'flex', alignItems: 'center',
+        justifyContent: 'center', fontSize: Math.round(size * 0.4) + 'px', fontWeight: 600,
+        fontFamily: 'var(--font-heading)', cursor: 'grab', userSelect: 'none', touchAction: 'none', zIndex: 2
+      };
+      if (tk.team === 'home') return Object.assign(base, { background: 'var(--color-accent-800)', border: '1.5px solid var(--color-accent-400)', color: 'var(--color-accent-100)', boxShadow: '0 0 10px rgba(145,132,217,0.35)' });
+      if (tk.team === 'away') return Object.assign(base, { background: 'var(--color-neutral-800)', border: '1.5px solid var(--color-neutral-400)', color: 'var(--color-neutral-100)' });
+      if (tk.team === 'cone') return Object.assign(base, { width: Math.round(size * 0.6) + 'px', height: Math.round(size * 0.55) + 'px', borderRadius: 0, clipPath: 'polygon(50% 0, 100% 100%, 0 100%)', background: 'var(--color-accent-300)' });
+      return Object.assign(base, { background: 'var(--color-neutral-100)', border: '1.5px solid var(--color-neutral-500)' });
+    };
+    const TOOLS = [['move', 'Move'], ['arrow', 'Arrow'], ['line', 'Line'], ['pen', 'Pen'], ['cone', 'Cone']];
+    const boardView = (b) => {
+      const tool = this.toolFor(b.id);
+      const drawing = tool !== 'move';
+      const shapes = (b.draw || []).concat(this._draw && this._draw.bid === b.id ? [this._draw.shape] : [])
+        .map(sh => ({ d: this.shapeD(sh), w: sh.type === 'pen' ? '0.45' : '0.65' }));
+      return Object.assign({}, b, {
+        tokens: b.tokens.map(tk => Object.assign({}, tk, {
+          style: Object.assign(tokStyle(tk), drawing ? { pointerEvents: 'none' } : null),
+          tag: showNum && tk.team !== 'ball' && tk.team !== 'cone' ? tk.label : ''
+        })),
+        shapes,
+        tools: TOOLS.map(([k, label]) => ({
+          label,
+          set: () => this.setTool(b.id, k),
+          style: k === tool
+            ? { color: 'var(--color-accent)', borderColor: 'var(--color-accent)', padding: '3px 10px', fontSize: '12px' }
+            : { color: 'var(--color-neutral-400)', borderColor: 'var(--color-divider)', padding: '3px 10px', fontSize: '12px' }
+        })),
+        undo: () => { if ((b.draw || []).length) { b.draw.pop(); this.bump(); } },
+        clearDraw: () => { b.draw = []; b.tokens = b.tokens.filter(t => t.team !== 'cone'); this.bump(); },
+        addHome: () => this.addTok(b.id, 'home'),
+        addAway: () => this.addTok(b.id, 'away'),
+        addBall: () => this.addTok(b.id, 'ball'),
+        reset: () => { b.tokens = this.defaultTokens(); this.bump(); },
+        del: () => this.delItem('boards', b.id)
+      });
+    };
+    const tabDefs = [['sessions', 'Sessions'], ['philosophy', 'Philosophy'], ['players', 'Players'], ['boards', 'Tactics board'], ['matches', 'Matches'], ['physical', 'Physical']];
+    const vals = {
+      team: D.team, season: D.season, phil: D.phil,
+      onField: this.onField, tokDown: this.tokDown, tokMove: this.tokMove, tokUp: this.tokUp, tokDel: this.tokDel,
+      drawDown: this.drawDown, drawMove: this.drawMove, drawUp: this.drawUp,
+      tabs: tabDefs.map(([k, label]) => ({
+        k, label,
+        go: () => this.setState({ tab: k }),
+        style: k === tab
+          ? { color: 'var(--color-accent)', borderColor: 'var(--color-accent)' }
+          : { color: 'var(--color-neutral-500)', borderColor: 'transparent' }
+      })),
+      tabSessions: tab === 'sessions', tabPhilosophy: tab === 'philosophy', tabPlayers: tab === 'players',
+      tabBoards: tab === 'boards', tabMatches: tab === 'matches', tabPhysical: tab === 'physical',
+      sessionCount: D.sessions.length + (D.sessions.length === 1 ? ' session' : ' sessions'),
+      playerCount: D.players.length + (D.players.length === 1 ? ' player' : ' players'),
+      matchCount: D.matches.length + (D.matches.length === 1 ? ' match' : ' matches'),
+      noSessions: D.sessions.length === 0, noPlayers: D.players.length === 0,
+      noMatches: D.matches.length === 0,
+      noBoards: D.boards.filter(b => b.kind === 'board').length === 0,
+      noPassages: D.boards.filter(b => b.kind === 'passage').length === 0,
+      noSetpieces: D.boards.filter(b => b.kind === 'setpiece').length === 0,
+      sessionsView: D.sessions.map(s => {
+        this.ensureSessionBoards(s);
+        return Object.assign({}, s, {
+          boardDrill: boardView(this.findBoard(s.bDrill)),
+          boardGrp: boardView(this.findBoard(s.bGrp)),
+          boardGame: boardView(this.findBoard(s.bGame)),
+          del: () => {
+            const ids = [s.bDrill, s.bGrp, s.bGame];
+            this.data.boards = this.data.boards.filter(b => !ids.includes(b.id));
+            this.delItem('sessions', s.id);
+          }
+        });
+      }),
+      playersView: D.players.map(p => Object.assign({}, p, { del: () => this.delItem('players', p.id) })),
+      matchesView: D.matches.map(m => {
+        const pitch = m.pitch || {};
+        const onPitch = D.players.filter(p => pitch[p.id]);
+        return Object.assign({}, m, {
+          del: () => this.delItem('matches', m.id),
+          ratingRows: D.players.map(p => ({ pid: p.id, name: (p.num ? p.num + ' · ' : '') + (p.name || 'Unnamed'), val: (m.ratings || {})[p.id] ?? '' })),
+          lineupCount: onPitch.length + ' on the pitch',
+          pitchTokens: onPitch.map(p => ({
+            pid: p.id, num: p.num || '·', name: p.name || 'Unnamed',
+            style: { position: 'absolute', left: pitch[p.id].x + '%', top: pitch[p.id].y + '%', transform: 'translate(-50%,-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px', cursor: 'grab', userSelect: 'none', touchAction: 'none', zIndex: 2 },
+            circle: { width: size + 'px', height: size + 'px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: Math.round(size * 0.4) + 'px', fontWeight: 600, fontFamily: 'var(--font-heading)', background: 'var(--color-accent-800)', border: '1.5px solid var(--color-accent-400)', color: 'var(--color-accent-100)', boxShadow: '0 0 10px rgba(145,132,217,0.35)' }
+          })),
+          bench: D.players.filter(p => !pitch[p.id]).map(p => ({
+            pid: p.id, label: (p.num ? p.num + ' · ' : '') + (p.name || 'Unnamed'),
+            place: () => {
+              const n = Object.keys(m.pitch || (m.pitch = {})).length;
+              m.pitch[p.id] = { x: 12 + (n % 6) * 15, y: 22 + Math.floor(n / 6) * 22 };
+              this.bump();
+            }
+          })),
+          benchEmpty: D.players.length > 0 && D.players.every(p => pitch[p.id])
+        });
+      }),
+      boardsView: D.boards.filter(b => b.kind === 'board').map(boardView),
+      passagesView: D.boards.filter(b => b.kind === 'passage').map(boardView),
+      setpiecesView: D.boards.filter(b => b.kind === 'setpiece').map(boardView),
+      testsView: D.tests.map(t => Object.assign({}, t, {
+        hasDates: t.dates.length > 0, noDates: t.dates.length === 0,
+        del: () => { D.tests = D.tests.filter(x => x.id !== t.id); this.bump(); },
+        addDate: () => { t.dates.push(this.today()); this.bump(); },
+        cols: t.dates.map((d, i) => ({ i: String(i), label: d })),
+        rows: D.players.map(p => ({
+          name: (p.num ? p.num + ' · ' : '') + (p.name || 'Unnamed'),
+          cells: t.dates.map((d, i) => ({ key: p.id + '|' + i, val: (t.results[p.id] || {})[i] ?? '' }))
+        }))
+      })),
+      addSession: () => { D.sessions.unshift({ id: this.uid(), date: this.today(), theme: '', duration: '1.5 hrs', venue: '', drillMin: '20', grpMin: '35', gameMin: '35', drill: '', grp: '', game: '', evalWell: '', evalHard: '', evalChange: '', evalGoals: '' }); this.bump(); },
+      addPlayer: () => { D.players.push({ id: this.uid(), num: '', name: '', pos: '', strengths: '', develop: '', goals: '', review: '' }); this.bump(); },
+      addMatch: () => { D.matches.unshift({ id: this.uid(), date: this.today(), opponent: '', venue: '', scoreFor: '', scoreAgainst: '', formation: '', lineup: '', scorers: '', moments: '', opposition: '', ratings: {} }); this.bump(); },
+      addBoard: () => this.addBoardOf('board', 'New board'),
+      addPassage: () => this.addBoardOf('passage', 'New passage of play'),
+      addSetpiece: () => this.addBoardOf('setpiece', 'New set piece'),
+      addTest: () => { D.tests.push({ id: this.uid(), name: 'New test', unit: 'unit', dates: [], results: {} }); this.bump(); }
+    };
+    return this.guardVals(vals);
+  }
+}
+</script>
+
+
+</body></html>

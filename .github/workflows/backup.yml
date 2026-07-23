@@ -1,0 +1,73 @@
+# Weekly snapshot of the notebook's data file into a dedicated `backups`
+# branch, so an unwanted overwrite on the `data` branch can be recovered
+# from. Runs entirely on GitHub Actions — independent of the webapp itself.
+#
+# ── Reuse on another site repo ──────────────────────────────────────────
+# Copy this file to the new repo's .github/workflows/backup.yml and adjust
+# the four env values below (branch names / file path). Nothing else needs
+# to change. Make sure the repo allows Actions to run (Settings → Actions →
+# General) — write access is requested explicitly below, so no extra repo
+# setting or secret is required.
+#
+# To change how often it runs, edit the cron schedule under `on.schedule`.
+# Cron is UTC and "minute hour day month weekday" — the default below is
+# every Monday at 06:00 UTC. https://crontab.guru is handy for other cadences.
+
+name: Weekly data backup
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+env:
+  DATA_BRANCH: data
+  DATA_FILE: data.json
+  BACKUP_BRANCH: backups
+  BACKUP_DIR: backups
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch data branch
+        run: git fetch origin "$DATA_BRANCH"
+
+      - name: Switch to (or create) the backups branch
+        run: |
+          if git ls-remote --exit-code --heads origin "$BACKUP_BRANCH" > /dev/null 2>&1; then
+            git checkout "$BACKUP_BRANCH"
+          else
+            git checkout --orphan "$BACKUP_BRANCH"
+            git rm -rf . > /dev/null 2>&1 || true
+          fi
+
+      - name: Snapshot data file
+        run: |
+          if ! git cat-file -e "origin/$DATA_BRANCH:$DATA_FILE" 2>/dev/null; then
+            echo "::error::$DATA_FILE not found on $DATA_BRANCH — nothing to back up"
+            exit 1
+          fi
+          mkdir -p "$BACKUP_DIR"
+          stem="$(basename "$DATA_FILE" .json)"
+          git show "origin/$DATA_BRANCH:$DATA_FILE" > "$BACKUP_DIR/${stem}-$(date -u +%F).json"
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "$BACKUP_DIR"
+          if git diff --cached --quiet; then
+            echo "No changes since last backup — skipping commit"
+            exit 0
+          fi
+          git commit -m "Weekly backup: $(date -u +%F)"
+          git push origin HEAD:"$BACKUP_BRANCH"

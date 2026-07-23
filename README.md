@@ -20,6 +20,14 @@ keeps a `localStorage` copy as an offline cache.
   Without it the notebook is view-only (inputs locked, action buttons hidden).
 - **Conflicts** — last write wins per save; saves are debounced ~2.5s and
   flushed when the tab is hidden. The page refetches when you return to it.
+- **Backups** — a GitHub Actions workflow
+  (`.github/workflows/backup.yml`) snapshots `data.json` into a dated file
+  on a separate `backups` branch every Monday, so a bad overwrite on `data`
+  can be recovered from. Runs on GitHub's infrastructure, independent of
+  the webapp; trigger it manually anytime from the repo's Actions tab
+  ("Weekly data backup" → *Run workflow*). It's a standalone, copyable
+  template — see the comments at the top of the file to reuse it on
+  another site's repo.
 
 ### Creating an edit token
 

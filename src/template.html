@@ -570,6 +570,10 @@ textarea.input { min-height: 90px; resize: vertical; }
       input, textarea { background: #ffffff !important; color: #1c1e26 !important; border-color: #c8cad4 !important; }
       details { break-inside: avoid; }
     }
+    @media (max-width: 640px) {
+      .match-meta-grid { grid-template-columns: 1fr 1fr !important; }
+      .match-notes-grid { grid-template-columns: 1fr !important; }
+    }
   </style>
 </helmet>
 <div style="max-width: 1180px; margin: 0 auto; padding: 28px 32px 90px; min-height: 100vh">
@@ -766,10 +770,286 @@ textarea.input { min-height: 90px; resize: vertical; }
       <div>
         <h4 style="margin-bottom: 10px">Principles of play</h4>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px">
-          <div class="card elev-sm"><div class="card-kicker">Build-up</div><textarea class="input" rows="5" placeholder="How we play out from the back…" value="{{ phil.build }}" data-sec="phil" data-field="build" sc-camel-on-change="{{ onField }}"></textarea></div>
-          <div class="card elev-sm"><div class="card-kicker">Attacking</div><textarea class="input" rows="5" placeholder="How we create and finish chances…" value="{{ phil.attack }}" data-sec="phil" data-field="attack" sc-camel-on-change="{{ onField }}"></textarea></div>
-          <div class="card elev-sm"><div class="card-kicker">Defending</div><textarea class="input" rows="5" placeholder="Press triggers, cover, compactness…" value="{{ phil.defend }}" data-sec="phil" data-field="defend" sc-camel-on-change="{{ onField }}"></textarea></div>
-          <div class="card elev-sm"><div class="card-kicker">Transitions</div><textarea class="input" rows="5" placeholder="First 5 seconds after winning / losing the ball…" value="{{ phil.transition }}" data-sec="phil" data-field="transition" sc-camel-on-change="{{ onField }}"></textarea></div>
+          <div class="card elev-sm">
+            <div class="card-kicker">Build-up</div>
+            <textarea class="input" rows="5" placeholder="How we play out from the back…" value="{{ phil.build }}" data-sec="phil" data-field="build" sc-camel-on-change="{{ onField }}"></textarea>
+            <div data-np="" style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 10px">
+              <button class="btn btn-primary" sc-camel-on-click="{{ philBuild.addBoard }}" style="padding: 3px 10px; font-size: 12px">+ New board</button>
+              <span class="text-muted" style="font-size: 11px">Copy from Tactics board:</span>
+              <sc-if value="{{ philBuild.noCopyBoards }}" hint-placeholder-val="{{ false }}"><span class="text-muted" style="font-size: 11px">none yet</span></sc-if>
+              <sc-for list="{{ philBuild.copyList }}" as="cb" hint-placeholder-count="1">
+                <button class="btn btn-secondary" sc-camel-on-click="{{ cb.copy }}" style="padding: 3px 10px; font-size: 12px">{{ cb.label }}</button>
+              </sc-for>
+            </div>
+            <sc-for list="{{ philBuild.boards }}" as="b" hint-placeholder-count="0">
+              <div class="card elev-sm" style="margin-top: 10px">
+                <div data-np="" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+                  <input class="input" value="{{ b.name }}" data-sec="boards" data-id="{{ b.id }}" data-field="name" sc-camel-on-change="{{ onField }}" style="flex: 1; min-width: 200px; font-family: var(--font-heading)">
+                  <button class="btn btn-secondary" sc-camel-on-click="{{ b.addHome }}">+ Us</button>
+                  <button class="btn btn-secondary" sc-camel-on-click="{{ b.addAway }}">+ Opp</button>
+                  <button class="btn btn-secondary" sc-camel-on-click="{{ b.addBall }}">+ Ball</button>
+                  <button class="btn btn-ghost" sc-camel-on-click="{{ b.del }}" style="color: var(--color-neutral-500)">Delete</button>
+                </div>
+                <div data-np="" style="display: flex; align-items: center; gap: 4px; flex-wrap: wrap">
+                  <sc-for list="{{ b.tools }}" as="tl" hint-placeholder-count="5">
+                    <button class="btn" sc-camel-on-click="{{ tl.set }}" style="{{ tl.style }}">{{ tl.label }}</button>
+                  </sc-for>
+                  <span style="flex: 1"></span>
+                  <button class="btn btn-ghost" sc-camel-on-click="{{ b.undo }}" style="padding: 3px 10px; font-size: 12px">Undo</button>
+                  <button class="btn btn-ghost" sc-camel-on-click="{{ b.clearDraw }}" style="padding: 3px 10px; font-size: 12px; color: var(--color-neutral-500)">Clear drawings</button>
+                </div>
+                <div style="position: relative; aspect-ratio: 105 / 68; border-radius: var(--radius-md); overflow: hidden; touch-action: none; background: radial-gradient(120% 130% at 50% 30%, var(--color-neutral-900), var(--color-bg))" data-bid="{{ b.id }}" data-vw="105" sc-camel-on-pointer-down="{{ drawDown }}" sc-camel-on-pointer-move="{{ drawMove }}" sc-camel-on-pointer-up="{{ drawUp }}">
+                  <svg sc-camel-view-box="0 0 105 68" sc-camel-preserve-aspect-ratio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
+                    <g fill="none" stroke="rgba(233,233,237,0.16)" stroke-width="0.5">
+                      <rect x="2" y="2" width="101" height="64" rx="1"></rect>
+                      <line x1="52.5" y1="2" x2="52.5" y2="66"></line>
+                      <circle cx="52.5" cy="34" r="9.15"></circle>
+                      <rect x="2" y="13.85" width="16.5" height="40.3"></rect>
+                      <rect x="86.5" y="13.85" width="16.5" height="40.3"></rect>
+                      <rect x="2" y="24.84" width="5.5" height="18.32"></rect>
+                      <rect x="97.5" y="24.84" width="5.5" height="18.32"></rect>
+                    </g>
+                    <circle cx="13" cy="34" r="0.5" fill="rgba(233,233,237,0.16)"></circle>
+                    <circle cx="92" cy="34" r="0.5" fill="rgba(233,233,237,0.16)"></circle>
+                  </svg>
+                  <svg sc-camel-view-box="0 0 105 68" sc-camel-preserve-aspect-ratio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
+                    <sc-for list="{{ b.shapes }}" as="sh" hint-placeholder-count="1">
+                      <path d="{{ sh.d }}" fill="none" stroke="var(--color-accent-400)" stroke-width="{{ sh.w }}" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"></path>
+                    </sc-for>
+                  </svg>
+                  <sc-for list="{{ b.tokens }}" as="tk" hint-placeholder-count="2">
+                    <div style="{{ tk.style }}" data-bid="{{ b.id }}" data-tid="{{ tk.id }}" sc-camel-on-pointer-down="{{ tokDown }}" sc-camel-on-pointer-move="{{ tokMove }}" sc-camel-on-pointer-up="{{ tokUp }}" sc-camel-on-double-click="{{ tokDel }}">{{ tk.tag }}</div>
+                  </sc-for>
+                </div>
+                <datalist id="{{ b.dlId }}"><sc-for list="{{ b.playerOptions }}" as="po" hint-placeholder-count="1"><option value="{{ po.label }}"></option></sc-for></datalist>
+                <div data-np="" style="display: flex; flex-direction: column; gap: 6px; margin-top: 8px">
+                  <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap">
+                    <span class="text-muted" style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; width: 100%">Us — player names</span>
+                    <sc-for list="{{ b.homeLabels }}" as="hl" hint-placeholder-count="2">
+                      <input class="input" list="{{ hl.dlId }}" placeholder="Slot {{ hl.idx }}" value="{{ hl.value }}" sc-camel-on-change="{{ hl.onLabel }}" style="width: 110px; min-height: 26px; padding: 2px 8px; font-size: 12px">
+                    </sc-for>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap">
+                    <span class="text-muted" style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; width: 100%">Opposition — custom labels</span>
+                    <sc-for list="{{ b.awayLabels }}" as="al" hint-placeholder-count="2">
+                      <input class="input" placeholder="Slot {{ al.idx }}" value="{{ al.value }}" sc-camel-on-change="{{ al.onLabel }}" style="width: 110px; min-height: 26px; padding: 2px 8px; font-size: 12px">
+                    </sc-for>
+                  </div>
+                </div>
+                <textarea class="input" rows="2" placeholder="Notes…" value="{{ b.notes }}" data-sec="boards" data-id="{{ b.id }}" data-field="notes" sc-camel-on-change="{{ onField }}" style="margin-top: 8px"></textarea>
+              </div>
+            </sc-for>
+          </div>
+          <div class="card elev-sm">
+            <div class="card-kicker">Attacking</div>
+            <textarea class="input" rows="5" placeholder="How we create and finish chances…" value="{{ phil.attack }}" data-sec="phil" data-field="attack" sc-camel-on-change="{{ onField }}"></textarea>
+            <div data-np="" style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 10px">
+              <button class="btn btn-primary" sc-camel-on-click="{{ philAttack.addBoard }}" style="padding: 3px 10px; font-size: 12px">+ New board</button>
+              <span class="text-muted" style="font-size: 11px">Copy from Tactics board:</span>
+              <sc-if value="{{ philAttack.noCopyBoards }}" hint-placeholder-val="{{ false }}"><span class="text-muted" style="font-size: 11px">none yet</span></sc-if>
+              <sc-for list="{{ philAttack.copyList }}" as="cb" hint-placeholder-count="1">
+                <button class="btn btn-secondary" sc-camel-on-click="{{ cb.copy }}" style="padding: 3px 10px; font-size: 12px">{{ cb.label }}</button>
+              </sc-for>
+            </div>
+            <sc-for list="{{ philAttack.boards }}" as="b" hint-placeholder-count="0">
+              <div class="card elev-sm" style="margin-top: 10px">
+                <div data-np="" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+                  <input class="input" value="{{ b.name }}" data-sec="boards" data-id="{{ b.id }}" data-field="name" sc-camel-on-change="{{ onField }}" style="flex: 1; min-width: 200px; font-family: var(--font-heading)">
+                  <button class="btn btn-secondary" sc-camel-on-click="{{ b.addHome }}">+ Us</button>
+                  <button class="btn btn-secondary" sc-camel-on-click="{{ b.addAway }}">+ Opp</button>
+                  <button class="btn btn-secondary" sc-camel-on-click="{{ b.addBall }}">+ Ball</button>
+                  <button class="btn btn-ghost" sc-camel-on-click="{{ b.del }}" style="color: var(--color-neutral-500)">Delete</button>
+                </div>
+                <div data-np="" style="display: flex; align-items: center; gap: 4px; flex-wrap: wrap">
+                  <sc-for list="{{ b.tools }}" as="tl" hint-placeholder-count="5">
+                    <button class="btn" sc-camel-on-click="{{ tl.set }}" style="{{ tl.style }}">{{ tl.label }}</button>
+                  </sc-for>
+                  <span style="flex: 1"></span>
+                  <button class="btn btn-ghost" sc-camel-on-click="{{ b.undo }}" style="padding: 3px 10px; font-size: 12px">Undo</button>
+                  <button class="btn btn-ghost" sc-camel-on-click="{{ b.clearDraw }}" style="padding: 3px 10px; font-size: 12px; color: var(--color-neutral-500)">Clear drawings</button>
+                </div>
+                <div style="position: relative; aspect-ratio: 105 / 68; border-radius: var(--radius-md); overflow: hidden; touch-action: none; background: radial-gradient(120% 130% at 50% 30%, var(--color-neutral-900), var(--color-bg))" data-bid="{{ b.id }}" data-vw="105" sc-camel-on-pointer-down="{{ drawDown }}" sc-camel-on-pointer-move="{{ drawMove }}" sc-camel-on-pointer-up="{{ drawUp }}">
+                  <svg sc-camel-view-box="0 0 105 68" sc-camel-preserve-aspect-ratio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
+                    <g fill="none" stroke="rgba(233,233,237,0.16)" stroke-width="0.5">
+                      <rect x="2" y="2" width="101" height="64" rx="1"></rect>
+                      <line x1="52.5" y1="2" x2="52.5" y2="66"></line>
+                      <circle cx="52.5" cy="34" r="9.15"></circle>
+                      <rect x="2" y="13.85" width="16.5" height="40.3"></rect>
+                      <rect x="86.5" y="13.85" width="16.5" height="40.3"></rect>
+                      <rect x="2" y="24.84" width="5.5" height="18.32"></rect>
+                      <rect x="97.5" y="24.84" width="5.5" height="18.32"></rect>
+                    </g>
+                    <circle cx="13" cy="34" r="0.5" fill="rgba(233,233,237,0.16)"></circle>
+                    <circle cx="92" cy="34" r="0.5" fill="rgba(233,233,237,0.16)"></circle>
+                  </svg>
+                  <svg sc-camel-view-box="0 0 105 68" sc-camel-preserve-aspect-ratio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
+                    <sc-for list="{{ b.shapes }}" as="sh" hint-placeholder-count="1">
+                      <path d="{{ sh.d }}" fill="none" stroke="var(--color-accent-400)" stroke-width="{{ sh.w }}" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"></path>
+                    </sc-for>
+                  </svg>
+                  <sc-for list="{{ b.tokens }}" as="tk" hint-placeholder-count="2">
+                    <div style="{{ tk.style }}" data-bid="{{ b.id }}" data-tid="{{ tk.id }}" sc-camel-on-pointer-down="{{ tokDown }}" sc-camel-on-pointer-move="{{ tokMove }}" sc-camel-on-pointer-up="{{ tokUp }}" sc-camel-on-double-click="{{ tokDel }}">{{ tk.tag }}</div>
+                  </sc-for>
+                </div>
+                <datalist id="{{ b.dlId }}"><sc-for list="{{ b.playerOptions }}" as="po" hint-placeholder-count="1"><option value="{{ po.label }}"></option></sc-for></datalist>
+                <div data-np="" style="display: flex; flex-direction: column; gap: 6px; margin-top: 8px">
+                  <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap">
+                    <span class="text-muted" style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; width: 100%">Us — player names</span>
+                    <sc-for list="{{ b.homeLabels }}" as="hl" hint-placeholder-count="2">
+                      <input class="input" list="{{ hl.dlId }}" placeholder="Slot {{ hl.idx }}" value="{{ hl.value }}" sc-camel-on-change="{{ hl.onLabel }}" style="width: 110px; min-height: 26px; padding: 2px 8px; font-size: 12px">
+                    </sc-for>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap">
+                    <span class="text-muted" style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; width: 100%">Opposition — custom labels</span>
+                    <sc-for list="{{ b.awayLabels }}" as="al" hint-placeholder-count="2">
+                      <input class="input" placeholder="Slot {{ al.idx }}" value="{{ al.value }}" sc-camel-on-change="{{ al.onLabel }}" style="width: 110px; min-height: 26px; padding: 2px 8px; font-size: 12px">
+                    </sc-for>
+                  </div>
+                </div>
+                <textarea class="input" rows="2" placeholder="Notes…" value="{{ b.notes }}" data-sec="boards" data-id="{{ b.id }}" data-field="notes" sc-camel-on-change="{{ onField }}" style="margin-top: 8px"></textarea>
+              </div>
+            </sc-for>
+          </div>
+          <div class="card elev-sm">
+            <div class="card-kicker">Defending</div>
+            <textarea class="input" rows="5" placeholder="Press triggers, cover, compactness…" value="{{ phil.defend }}" data-sec="phil" data-field="defend" sc-camel-on-change="{{ onField }}"></textarea>
+            <div data-np="" style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 10px">
+              <button class="btn btn-primary" sc-camel-on-click="{{ philDefend.addBoard }}" style="padding: 3px 10px; font-size: 12px">+ New board</button>
+              <span class="text-muted" style="font-size: 11px">Copy from Tactics board:</span>
+              <sc-if value="{{ philDefend.noCopyBoards }}" hint-placeholder-val="{{ false }}"><span class="text-muted" style="font-size: 11px">none yet</span></sc-if>
+              <sc-for list="{{ philDefend.copyList }}" as="cb" hint-placeholder-count="1">
+                <button class="btn btn-secondary" sc-camel-on-click="{{ cb.copy }}" style="padding: 3px 10px; font-size: 12px">{{ cb.label }}</button>
+              </sc-for>
+            </div>
+            <sc-for list="{{ philDefend.boards }}" as="b" hint-placeholder-count="0">
+              <div class="card elev-sm" style="margin-top: 10px">
+                <div data-np="" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+                  <input class="input" value="{{ b.name }}" data-sec="boards" data-id="{{ b.id }}" data-field="name" sc-camel-on-change="{{ onField }}" style="flex: 1; min-width: 200px; font-family: var(--font-heading)">
+                  <button class="btn btn-secondary" sc-camel-on-click="{{ b.addHome }}">+ Us</button>
+                  <button class="btn btn-secondary" sc-camel-on-click="{{ b.addAway }}">+ Opp</button>
+                  <button class="btn btn-secondary" sc-camel-on-click="{{ b.addBall }}">+ Ball</button>
+                  <button class="btn btn-ghost" sc-camel-on-click="{{ b.del }}" style="color: var(--color-neutral-500)">Delete</button>
+                </div>
+                <div data-np="" style="display: flex; align-items: center; gap: 4px; flex-wrap: wrap">
+                  <sc-for list="{{ b.tools }}" as="tl" hint-placeholder-count="5">
+                    <button class="btn" sc-camel-on-click="{{ tl.set }}" style="{{ tl.style }}">{{ tl.label }}</button>
+                  </sc-for>
+                  <span style="flex: 1"></span>
+                  <button class="btn btn-ghost" sc-camel-on-click="{{ b.undo }}" style="padding: 3px 10px; font-size: 12px">Undo</button>
+                  <button class="btn btn-ghost" sc-camel-on-click="{{ b.clearDraw }}" style="padding: 3px 10px; font-size: 12px; color: var(--color-neutral-500)">Clear drawings</button>
+                </div>
+                <div style="position: relative; aspect-ratio: 105 / 68; border-radius: var(--radius-md); overflow: hidden; touch-action: none; background: radial-gradient(120% 130% at 50% 30%, var(--color-neutral-900), var(--color-bg))" data-bid="{{ b.id }}" data-vw="105" sc-camel-on-pointer-down="{{ drawDown }}" sc-camel-on-pointer-move="{{ drawMove }}" sc-camel-on-pointer-up="{{ drawUp }}">
+                  <svg sc-camel-view-box="0 0 105 68" sc-camel-preserve-aspect-ratio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
+                    <g fill="none" stroke="rgba(233,233,237,0.16)" stroke-width="0.5">
+                      <rect x="2" y="2" width="101" height="64" rx="1"></rect>
+                      <line x1="52.5" y1="2" x2="52.5" y2="66"></line>
+                      <circle cx="52.5" cy="34" r="9.15"></circle>
+                      <rect x="2" y="13.85" width="16.5" height="40.3"></rect>
+                      <rect x="86.5" y="13.85" width="16.5" height="40.3"></rect>
+                      <rect x="2" y="24.84" width="5.5" height="18.32"></rect>
+                      <rect x="97.5" y="24.84" width="5.5" height="18.32"></rect>
+                    </g>
+                    <circle cx="13" cy="34" r="0.5" fill="rgba(233,233,237,0.16)"></circle>
+                    <circle cx="92" cy="34" r="0.5" fill="rgba(233,233,237,0.16)"></circle>
+                  </svg>
+                  <svg sc-camel-view-box="0 0 105 68" sc-camel-preserve-aspect-ratio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
+                    <sc-for list="{{ b.shapes }}" as="sh" hint-placeholder-count="1">
+                      <path d="{{ sh.d }}" fill="none" stroke="var(--color-accent-400)" stroke-width="{{ sh.w }}" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"></path>
+                    </sc-for>
+                  </svg>
+                  <sc-for list="{{ b.tokens }}" as="tk" hint-placeholder-count="2">
+                    <div style="{{ tk.style }}" data-bid="{{ b.id }}" data-tid="{{ tk.id }}" sc-camel-on-pointer-down="{{ tokDown }}" sc-camel-on-pointer-move="{{ tokMove }}" sc-camel-on-pointer-up="{{ tokUp }}" sc-camel-on-double-click="{{ tokDel }}">{{ tk.tag }}</div>
+                  </sc-for>
+                </div>
+                <datalist id="{{ b.dlId }}"><sc-for list="{{ b.playerOptions }}" as="po" hint-placeholder-count="1"><option value="{{ po.label }}"></option></sc-for></datalist>
+                <div data-np="" style="display: flex; flex-direction: column; gap: 6px; margin-top: 8px">
+                  <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap">
+                    <span class="text-muted" style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; width: 100%">Us — player names</span>
+                    <sc-for list="{{ b.homeLabels }}" as="hl" hint-placeholder-count="2">
+                      <input class="input" list="{{ hl.dlId }}" placeholder="Slot {{ hl.idx }}" value="{{ hl.value }}" sc-camel-on-change="{{ hl.onLabel }}" style="width: 110px; min-height: 26px; padding: 2px 8px; font-size: 12px">
+                    </sc-for>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap">
+                    <span class="text-muted" style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; width: 100%">Opposition — custom labels</span>
+                    <sc-for list="{{ b.awayLabels }}" as="al" hint-placeholder-count="2">
+                      <input class="input" placeholder="Slot {{ al.idx }}" value="{{ al.value }}" sc-camel-on-change="{{ al.onLabel }}" style="width: 110px; min-height: 26px; padding: 2px 8px; font-size: 12px">
+                    </sc-for>
+                  </div>
+                </div>
+                <textarea class="input" rows="2" placeholder="Notes…" value="{{ b.notes }}" data-sec="boards" data-id="{{ b.id }}" data-field="notes" sc-camel-on-change="{{ onField }}" style="margin-top: 8px"></textarea>
+              </div>
+            </sc-for>
+          </div>
+          <div class="card elev-sm">
+            <div class="card-kicker">Transitions</div>
+            <textarea class="input" rows="5" placeholder="First 5 seconds after winning / losing the ball…" value="{{ phil.transition }}" data-sec="phil" data-field="transition" sc-camel-on-change="{{ onField }}"></textarea>
+            <div data-np="" style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 10px">
+              <button class="btn btn-primary" sc-camel-on-click="{{ philTransition.addBoard }}" style="padding: 3px 10px; font-size: 12px">+ New board</button>
+              <span class="text-muted" style="font-size: 11px">Copy from Tactics board:</span>
+              <sc-if value="{{ philTransition.noCopyBoards }}" hint-placeholder-val="{{ false }}"><span class="text-muted" style="font-size: 11px">none yet</span></sc-if>
+              <sc-for list="{{ philTransition.copyList }}" as="cb" hint-placeholder-count="1">
+                <button class="btn btn-secondary" sc-camel-on-click="{{ cb.copy }}" style="padding: 3px 10px; font-size: 12px">{{ cb.label }}</button>
+              </sc-for>
+            </div>
+            <sc-for list="{{ philTransition.boards }}" as="b" hint-placeholder-count="0">
+              <div class="card elev-sm" style="margin-top: 10px">
+                <div data-np="" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+                  <input class="input" value="{{ b.name }}" data-sec="boards" data-id="{{ b.id }}" data-field="name" sc-camel-on-change="{{ onField }}" style="flex: 1; min-width: 200px; font-family: var(--font-heading)">
+                  <button class="btn btn-secondary" sc-camel-on-click="{{ b.addHome }}">+ Us</button>
+                  <button class="btn btn-secondary" sc-camel-on-click="{{ b.addAway }}">+ Opp</button>
+                  <button class="btn btn-secondary" sc-camel-on-click="{{ b.addBall }}">+ Ball</button>
+                  <button class="btn btn-ghost" sc-camel-on-click="{{ b.del }}" style="color: var(--color-neutral-500)">Delete</button>
+                </div>
+                <div data-np="" style="display: flex; align-items: center; gap: 4px; flex-wrap: wrap">
+                  <sc-for list="{{ b.tools }}" as="tl" hint-placeholder-count="5">
+                    <button class="btn" sc-camel-on-click="{{ tl.set }}" style="{{ tl.style }}">{{ tl.label }}</button>
+                  </sc-for>
+                  <span style="flex: 1"></span>
+                  <button class="btn btn-ghost" sc-camel-on-click="{{ b.undo }}" style="padding: 3px 10px; font-size: 12px">Undo</button>
+                  <button class="btn btn-ghost" sc-camel-on-click="{{ b.clearDraw }}" style="padding: 3px 10px; font-size: 12px; color: var(--color-neutral-500)">Clear drawings</button>
+                </div>
+                <div style="position: relative; aspect-ratio: 105 / 68; border-radius: var(--radius-md); overflow: hidden; touch-action: none; background: radial-gradient(120% 130% at 50% 30%, var(--color-neutral-900), var(--color-bg))" data-bid="{{ b.id }}" data-vw="105" sc-camel-on-pointer-down="{{ drawDown }}" sc-camel-on-pointer-move="{{ drawMove }}" sc-camel-on-pointer-up="{{ drawUp }}">
+                  <svg sc-camel-view-box="0 0 105 68" sc-camel-preserve-aspect-ratio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
+                    <g fill="none" stroke="rgba(233,233,237,0.16)" stroke-width="0.5">
+                      <rect x="2" y="2" width="101" height="64" rx="1"></rect>
+                      <line x1="52.5" y1="2" x2="52.5" y2="66"></line>
+                      <circle cx="52.5" cy="34" r="9.15"></circle>
+                      <rect x="2" y="13.85" width="16.5" height="40.3"></rect>
+                      <rect x="86.5" y="13.85" width="16.5" height="40.3"></rect>
+                      <rect x="2" y="24.84" width="5.5" height="18.32"></rect>
+                      <rect x="97.5" y="24.84" width="5.5" height="18.32"></rect>
+                    </g>
+                    <circle cx="13" cy="34" r="0.5" fill="rgba(233,233,237,0.16)"></circle>
+                    <circle cx="92" cy="34" r="0.5" fill="rgba(233,233,237,0.16)"></circle>
+                  </svg>
+                  <svg sc-camel-view-box="0 0 105 68" sc-camel-preserve-aspect-ratio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
+                    <sc-for list="{{ b.shapes }}" as="sh" hint-placeholder-count="1">
+                      <path d="{{ sh.d }}" fill="none" stroke="var(--color-accent-400)" stroke-width="{{ sh.w }}" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"></path>
+                    </sc-for>
+                  </svg>
+                  <sc-for list="{{ b.tokens }}" as="tk" hint-placeholder-count="2">
+                    <div style="{{ tk.style }}" data-bid="{{ b.id }}" data-tid="{{ tk.id }}" sc-camel-on-pointer-down="{{ tokDown }}" sc-camel-on-pointer-move="{{ tokMove }}" sc-camel-on-pointer-up="{{ tokUp }}" sc-camel-on-double-click="{{ tokDel }}">{{ tk.tag }}</div>
+                  </sc-for>
+                </div>
+                <datalist id="{{ b.dlId }}"><sc-for list="{{ b.playerOptions }}" as="po" hint-placeholder-count="1"><option value="{{ po.label }}"></option></sc-for></datalist>
+                <div data-np="" style="display: flex; flex-direction: column; gap: 6px; margin-top: 8px">
+                  <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap">
+                    <span class="text-muted" style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; width: 100%">Us — player names</span>
+                    <sc-for list="{{ b.homeLabels }}" as="hl" hint-placeholder-count="2">
+                      <input class="input" list="{{ hl.dlId }}" placeholder="Slot {{ hl.idx }}" value="{{ hl.value }}" sc-camel-on-change="{{ hl.onLabel }}" style="width: 110px; min-height: 26px; padding: 2px 8px; font-size: 12px">
+                    </sc-for>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap">
+                    <span class="text-muted" style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; width: 100%">Opposition — custom labels</span>
+                    <sc-for list="{{ b.awayLabels }}" as="al" hint-placeholder-count="2">
+                      <input class="input" placeholder="Slot {{ al.idx }}" value="{{ al.value }}" sc-camel-on-change="{{ al.onLabel }}" style="width: 110px; min-height: 26px; padding: 2px 8px; font-size: 12px">
+                    </sc-for>
+                  </div>
+                </div>
+                <textarea class="input" rows="2" placeholder="Notes…" value="{{ b.notes }}" data-sec="boards" data-id="{{ b.id }}" data-field="notes" sc-camel-on-change="{{ onField }}" style="margin-top: 8px"></textarea>
+              </div>
+            </sc-for>
+          </div>
         </div>
       </div>
       <div style="display: flex; flex-direction: column; gap: 12px">
@@ -819,6 +1099,23 @@ textarea.input { min-height: 90px; resize: vertical; }
               <sc-for list="{{ b.tokens }}" as="tk" hint-placeholder-count="2">
                 <div style="{{ tk.style }}" data-bid="{{ b.id }}" data-tid="{{ tk.id }}" sc-camel-on-pointer-down="{{ tokDown }}" sc-camel-on-pointer-move="{{ tokMove }}" sc-camel-on-pointer-up="{{ tokUp }}" sc-camel-on-double-click="{{ tokDel }}">{{ tk.tag }}</div>
               </sc-for>
+            </div>
+            <datalist id="{{ b.dlId }}"><sc-for list="{{ b.playerOptions }}" as="po" hint-placeholder-count="1"><option value="{{ po.label }}"></option></sc-for></datalist>
+            <div data-np="" style="display: flex; flex-direction: column; gap: 6px; margin-top: 8px">
+              <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap">
+                <span class="text-muted" style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; width: 100%">Us — player names</span>
+                <sc-if value="{{ b.noHomeLabels }}" hint-placeholder-val="{{ false }}"><span class="text-muted" style="font-size: 12px">Add "+ Us" tokens above, then name them here</span></sc-if>
+                <sc-for list="{{ b.homeLabels }}" as="hl" hint-placeholder-count="2">
+                  <input class="input" list="{{ hl.dlId }}" placeholder="Slot {{ hl.idx }}" value="{{ hl.value }}" sc-camel-on-change="{{ hl.onLabel }}" style="width: 120px; min-height: 26px; padding: 2px 8px; font-size: 12px">
+                </sc-for>
+              </div>
+              <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap">
+                <span class="text-muted" style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; width: 100%">Opposition — custom labels</span>
+                <sc-if value="{{ b.noAwayLabels }}" hint-placeholder-val="{{ false }}"><span class="text-muted" style="font-size: 12px">Add "+ Opp" tokens above, then label them here</span></sc-if>
+                <sc-for list="{{ b.awayLabels }}" as="al" hint-placeholder-count="2">
+                  <input class="input" placeholder="Slot {{ al.idx }}" value="{{ al.value }}" sc-camel-on-change="{{ al.onLabel }}" style="width: 120px; min-height: 26px; padding: 2px 8px; font-size: 12px">
+                </sc-for>
+              </div>
             </div>
             <textarea class="input" rows="3" placeholder="Describe the movement: trigger, runs, end product…" value="{{ b.notes }}" data-sec="boards" data-id="{{ b.id }}" data-field="notes" sc-camel-on-change="{{ onField }}"></textarea>
             <div data-np="" class="text-muted" style="font-size: 11px">Drag pieces to move · double-click a piece to remove it · positions save automatically</div>
@@ -872,6 +1169,23 @@ textarea.input { min-height: 90px; resize: vertical; }
               <sc-for list="{{ b.tokens }}" as="tk" hint-placeholder-count="2">
                 <div style="{{ tk.style }}" data-bid="{{ b.id }}" data-tid="{{ tk.id }}" sc-camel-on-pointer-down="{{ tokDown }}" sc-camel-on-pointer-move="{{ tokMove }}" sc-camel-on-pointer-up="{{ tokUp }}" sc-camel-on-double-click="{{ tokDel }}">{{ tk.tag }}</div>
               </sc-for>
+            </div>
+            <datalist id="{{ b.dlId }}"><sc-for list="{{ b.playerOptions }}" as="po" hint-placeholder-count="1"><option value="{{ po.label }}"></option></sc-for></datalist>
+            <div data-np="" style="display: flex; flex-direction: column; gap: 6px; margin-top: 8px">
+              <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap">
+                <span class="text-muted" style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; width: 100%">Us — player names</span>
+                <sc-if value="{{ b.noHomeLabels }}" hint-placeholder-val="{{ false }}"><span class="text-muted" style="font-size: 12px">Add "+ Us" tokens above, then name them here</span></sc-if>
+                <sc-for list="{{ b.homeLabels }}" as="hl" hint-placeholder-count="2">
+                  <input class="input" list="{{ hl.dlId }}" placeholder="Slot {{ hl.idx }}" value="{{ hl.value }}" sc-camel-on-change="{{ hl.onLabel }}" style="width: 120px; min-height: 26px; padding: 2px 8px; font-size: 12px">
+                </sc-for>
+              </div>
+              <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap">
+                <span class="text-muted" style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; width: 100%">Opposition — custom labels</span>
+                <sc-if value="{{ b.noAwayLabels }}" hint-placeholder-val="{{ false }}"><span class="text-muted" style="font-size: 12px">Add "+ Opp" tokens above, then label them here</span></sc-if>
+                <sc-for list="{{ b.awayLabels }}" as="al" hint-placeholder-count="2">
+                  <input class="input" placeholder="Slot {{ al.idx }}" value="{{ al.value }}" sc-camel-on-change="{{ al.onLabel }}" style="width: 120px; min-height: 26px; padding: 2px 8px; font-size: 12px">
+                </sc-for>
+              </div>
             </div>
             <textarea class="input" rows="3" placeholder="Delivery, runs, second-ball plan…" value="{{ b.notes }}" data-sec="boards" data-id="{{ b.id }}" data-field="notes" sc-camel-on-change="{{ onField }}"></textarea>
             <div data-np="" class="text-muted" style="font-size: 11px">Drag pieces to move · double-click a piece to remove it</div>
@@ -969,6 +1283,23 @@ textarea.input { min-height: 90px; resize: vertical; }
               <div style="{{ tk.style }}" data-bid="{{ b.id }}" data-tid="{{ tk.id }}" sc-camel-on-pointer-down="{{ tokDown }}" sc-camel-on-pointer-move="{{ tokMove }}" sc-camel-on-pointer-up="{{ tokUp }}" sc-camel-on-double-click="{{ tokDel }}">{{ tk.tag }}</div>
             </sc-for>
           </div>
+          <datalist id="{{ b.dlId }}"><sc-for list="{{ b.playerOptions }}" as="po" hint-placeholder-count="1"><option value="{{ po.label }}"></option></sc-for></datalist>
+          <div data-np="" style="display: flex; flex-direction: column; gap: 6px; margin-top: 8px">
+            <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap">
+              <span class="text-muted" style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; width: 100%">Us — player names</span>
+              <sc-if value="{{ b.noHomeLabels }}" hint-placeholder-val="{{ false }}"><span class="text-muted" style="font-size: 12px">Add "+ Us" tokens above, then name them here</span></sc-if>
+              <sc-for list="{{ b.homeLabels }}" as="hl" hint-placeholder-count="2">
+                <input class="input" list="{{ hl.dlId }}" placeholder="Slot {{ hl.idx }}" value="{{ hl.value }}" sc-camel-on-change="{{ hl.onLabel }}" style="width: 120px; min-height: 26px; padding: 2px 8px; font-size: 12px">
+              </sc-for>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap">
+              <span class="text-muted" style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; width: 100%">Opposition — custom labels</span>
+              <sc-if value="{{ b.noAwayLabels }}" hint-placeholder-val="{{ false }}"><span class="text-muted" style="font-size: 12px">Add "+ Opp" tokens above, then label them here</span></sc-if>
+              <sc-for list="{{ b.awayLabels }}" as="al" hint-placeholder-count="2">
+                <input class="input" placeholder="Slot {{ al.idx }}" value="{{ al.value }}" sc-camel-on-change="{{ al.onLabel }}" style="width: 120px; min-height: 26px; padding: 2px 8px; font-size: 12px">
+              </sc-for>
+            </div>
+          </div>
           <textarea class="input" rows="3" placeholder="Notes on this shape / plan…" value="{{ b.notes }}" data-sec="boards" data-id="{{ b.id }}" data-field="notes" sc-camel-on-change="{{ onField }}"></textarea>
           <div data-np="" class="text-muted" style="font-size: 11px">Drag pieces to move · double-click a piece to remove it · positions save automatically</div>
         </div>
@@ -996,7 +1327,7 @@ textarea.input { min-height: 90px; resize: vertical; }
             <span style="flex: 1"></span>
             <span style="font-family: var(--font-heading); font-size: 18px; color: var(--color-accent-300)">{{ m.scoreFor }} – {{ m.scoreAgainst }}</span>
           </summary>
-          <div style="display: grid; grid-template-columns: 150px 1fr 1fr 90px 90px 120px; gap: 10px; margin-top: 10px">
+          <div class="match-meta-grid" style="display: grid; grid-template-columns: 150px 1fr 1fr 90px 90px 120px; gap: 10px; margin-top: 10px">
             <div class="field"><label>Date</label><input class="input" type="date" value="{{ m.date }}" data-sec="matches" data-id="{{ m.id }}" data-field="date" sc-camel-on-change="{{ onField }}"></div>
             <div class="field"><label>Opponent</label><input class="input" value="{{ m.opponent }}" data-sec="matches" data-id="{{ m.id }}" data-field="opponent" sc-camel-on-change="{{ onField }}"></div>
             <div class="field"><label>Venue</label><input class="input" value="{{ m.venue }}" data-sec="matches" data-id="{{ m.id }}" data-field="venue" sc-camel-on-change="{{ onField }}"></div>
@@ -1036,7 +1367,7 @@ textarea.input { min-height: 90px; resize: vertical; }
             </sc-for>
             <sc-if value="{{ m.benchEmpty }}" hint-placeholder-val="{{ false }}"><span class="text-muted" style="font-size: 11px">whole squad placed</span></sc-if>
           </div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px">
+          <div class="match-notes-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px">
             <div class="field"><label>Subs &amp; lineup notes</label><textarea class="input" rows="4" placeholder="Substitutions, roles, in-game changes…" value="{{ m.lineup }}" data-sec="matches" data-id="{{ m.id }}" data-field="lineup" sc-camel-on-change="{{ onField }}"></textarea></div>
             <div class="field"><label>Scorers &amp; assists</label><textarea class="input" rows="4" value="{{ m.scorers }}" data-sec="matches" data-id="{{ m.id }}" data-field="scorers" sc-camel-on-change="{{ onField }}"></textarea></div>
             <div class="field"><label>Key moments / passages of play</label><textarea class="input" rows="4" value="{{ m.moments }}" data-sec="matches" data-id="{{ m.id }}" data-field="moments" sc-camel-on-change="{{ onField }}"></textarea></div>
@@ -1048,7 +1379,44 @@ textarea.input { min-height: 90px; resize: vertical; }
             <sc-for list="{{ m.ratingRows }}" as="r" hint-placeholder-count="3">
               <div style="display: flex; align-items: center; gap: 8px; background: var(--color-neutral-900); border-radius: var(--radius-sm); padding: 6px 10px">
                 <span style="flex: 1; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{ r.name }}</span>
-                <input class="input" type="number" min="1" max="10" value="{{ r.val }}" data-sec="rating" data-id="{{ m.id }}" data-field="{{ r.pid }}" sc-camel-on-change="{{ onField }}" aria-label="Rating" style="width: 60px; min-height: 28px; padding: 2px 8px; text-align: center">
+                <button class="btn" sc-camel-on-click="{{ r.setR }}" style="{{ r.styleR }}" aria-label="Red">R</button>
+                <button class="btn" sc-camel-on-click="{{ r.setA }}" style="{{ r.styleA }}" aria-label="Amber">A</button>
+                <button class="btn" sc-camel-on-click="{{ r.setG }}" style="{{ r.styleG }}" aria-label="Green">G</button>
+              </div>
+            </sc-for>
+          </div>
+          <div style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-neutral-500); margin-top: 12px">Photos &amp; clips</div>
+          <div data-np="" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 4px">
+            <label class="btn btn-secondary" style="cursor: pointer">+ Add photos<input type="file" accept="image/*" multiple sc-camel-on-change="{{ m.addImages }}" style="display: none"></label>
+            <button class="btn btn-secondary" sc-camel-on-click="{{ m.addClip }}">+ Add clip link</button>
+          </div>
+          <sc-if value="{{ m.noImages }}" hint-placeholder-val="{{ false }}"><p class="text-muted" style="font-size: 12px; margin: 6px 0 0">No photos yet — great for goals, key shape moments, half-time whiteboard shots.</p></sc-if>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px">
+            <sc-for list="{{ m.images }}" as="img" hint-placeholder-count="1">
+              <div class="card elev-sm" style="width: 150px; padding: 6px">
+                <img src="{{ img.src }}" style="width: 100%; border-radius: 6px; display: block">
+                <input class="input" placeholder="Caption" value="{{ img.caption }}" sc-camel-on-change="{{ img.setCaption }}" style="margin-top: 6px; font-size: 11px; padding: 2px 6px; min-height: 24px">
+                <button data-np="" class="btn btn-ghost" sc-camel-on-click="{{ img.del }}" style="font-size: 11px; padding: 2px 6px; margin-top: 4px; color: var(--color-neutral-500)">Remove</button>
+              </div>
+            </sc-for>
+          </div>
+          <sc-if value="{{ m.noClips }}" hint-placeholder-val="{{ false }}"><p class="text-muted" style="font-size: 12px; margin: 8px 0 0">No clip links yet — paste a YouTube/Hudl/Drive link to a key moment.</p></sc-if>
+          <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px">
+            <sc-for list="{{ m.clips }}" as="c" hint-placeholder-count="1">
+              <div class="card elev-sm" style="padding: 8px">
+                <div data-np="" style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center">
+                  <input class="input" placeholder="https://youtube.com/…" value="{{ c.url }}" sc-camel-on-change="{{ c.setUrl }}" style="flex: 1; min-width: 200px; font-size: 12px; padding: 3px 8px; min-height: 26px">
+                  <input class="input" placeholder="Caption" value="{{ c.caption }}" sc-camel-on-change="{{ c.setCaption }}" style="width: 160px; font-size: 12px; padding: 3px 8px; min-height: 26px">
+                  <button class="btn btn-ghost" sc-camel-on-click="{{ c.del }}" style="font-size: 11px; padding: 2px 8px; color: var(--color-neutral-500)">Remove</button>
+                </div>
+                <sc-if value="{{ c.hasEmbed }}" hint-placeholder-val="{{ false }}">
+                  <div style="position: relative; aspect-ratio: 16 / 9; margin-top: 8px; border-radius: var(--radius-md); overflow: hidden">
+                    <iframe src="{{ c.embed }}" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0" allowfullscreen=""></iframe>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ c.showLink }}" hint-placeholder-val="{{ false }}">
+                  <a href="{{ c.url }}" target="_blank" rel="noopener" style="font-size: 12px; display: inline-block; margin-top: 6px">Open clip ↗</a>
+                </sc-if>
               </div>
             </sc-for>
           </div>
@@ -1487,6 +1855,15 @@ class Component extends DCLogic {
       ]
     }, saved || {});
     if (!this.data.phil) this.data.phil = { objectives: '', build: '', attack: '', defend: '', transition: '' };
+    (this.data.matches || []).forEach(m => {
+      if (!m.ratings) return;
+      for (const pid in m.ratings) {
+        const v = m.ratings[pid], n = parseFloat(v);
+        if (v !== '' && v != null && !Number.isNaN(n) && v !== 'R' && v !== 'A' && v !== 'G') {
+          m.ratings[pid] = n <= 3 ? 'R' : n <= 7 ? 'A' : 'G';
+        }
+      }
+    });
     this.state = { tab: 'sessions' };
   }
   componentDidMount() {
@@ -1530,7 +1907,6 @@ class Component extends DCLogic {
     if (sec === 'team') D.team = v;
     else if (sec === 'season') D.season = v;
     else if (sec === 'phil') D.phil[field] = v;
-    else if (sec === 'rating') { const m = D.matches.find(x => x.id === id); if (m) (m.ratings || (m.ratings = {}))[field] = v; }
     else if (sec === 'phys') { const t = D.tests.find(x => x.id === id); if (t) { const [pid, di] = field.split('|'); (t.results[pid] || (t.results[pid] = {}))[di] = v; } }
     else if (sec === 'physdate') { const t = D.tests.find(x => x.id === id); if (t) t.dates[+field] = v; }
     else { const it = (D[sec] || []).find(x => x.id === id); if (it) it[field] = v; }
@@ -1658,6 +2034,19 @@ class Component extends DCLogic {
     this.data.boards.push({ id: this.uid(), kind, name, notes: '', tokens: this.defaultTokens() });
     this.bump();
   }
+  addPrincipleBoard(principle) {
+    this.data.boards.push({ id: this.uid(), kind: 'principle', principle, name: 'New board', notes: '', tokens: this.defaultTokens() });
+    this.bump();
+  }
+  copyBoardInto(src, kind, extra) {
+    const clone = Object.assign({
+      id: this.uid(), kind, name: (src.name || 'Board') + ' (copy)', notes: src.notes || '',
+      tokens: src.tokens.map(t => Object.assign({}, t, { id: this.uid() })),
+      draw: (src.draw || []).map(sh => Object.assign({}, sh, { pts: sh.pts.map(p => p.slice()) }))
+    }, extra);
+    this.data.boards.push(clone);
+    this.bump();
+  }
   addTok(bid, team) {
     const b = this.data.boards.find(x => x.id === bid);
     if (!b) return;
@@ -1666,6 +2055,31 @@ class Component extends DCLogic {
     this.bump();
   }
   delItem(col, id) { this.data[col] = this.data[col].filter(x => x.id !== id); this.bump(); }
+  addImageFiles(m, fileList) {
+    Array.from(fileList || []).forEach(file => {
+      if (!file.type || file.type.indexOf('image/') !== 0) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        const img = new Image();
+        img.onload = () => {
+          const maxDim = 1280;
+          let w = img.width, h = img.height;
+          if (w > maxDim || h > maxDim) { const s = maxDim / Math.max(w, h); w = Math.round(w * s); h = Math.round(h * s); }
+          const canvas = document.createElement('canvas');
+          canvas.width = w; canvas.height = h;
+          canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+          (m.images || (m.images = [])).push({ id: this.uid(), src: canvas.toDataURL('image/jpeg', 0.72), caption: '' });
+          this.bump();
+        };
+        img.src = reader.result;
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+  ytEmbed(url) {
+    const m = String(url || '').match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{6,})/);
+    return m ? 'https://www.youtube.com/embed/' + m[1] : null;
+  }
   renderVals() {
     const D = this.data, tab = this.state.tab;
     const size = this.props.tokenSize ?? 28;
@@ -1684,16 +2098,42 @@ class Component extends DCLogic {
       return Object.assign(base, { background: 'var(--color-neutral-100)', border: '1.5px solid var(--color-neutral-500)' });
     };
     const TOOLS = [['move', 'Move'], ['arrow', 'Arrow'], ['line', 'Line'], ['pen', 'Pen'], ['cone', 'Cone']];
-    const boardView = (b) => {
+    const playerLabel = (p) => (p.num ? p.num + ' · ' : '') + (p.name || 'Unnamed');
+    const boardView = (b, opts) => {
+      const showLabels = !!(opts && opts.showLabels);
       const tool = this.toolFor(b.id);
       const drawing = tool !== 'move';
       const shapes = (b.draw || []).concat(this._draw && this._draw.bid === b.id ? [this._draw.shape] : [])
         .map(sh => ({ d: this.shapeD(sh), w: sh.type === 'pen' ? '0.45' : '0.65' }));
+      const onLabelFor = (tk) => (e) => {
+        const v = e.currentTarget.value;
+        tk.label = v;
+        if (tk.team === 'home') {
+          const match = D.players.find(p => playerLabel(p) === v);
+          tk.pid = match ? match.id : null;
+        }
+        this.bump();
+      };
+      const dlId = 'pl-' + b.id;
       return Object.assign({}, b, {
+        dlId,
+        playerOptions: D.players.map(p => ({ label: playerLabel(p) })),
         tokens: b.tokens.map(tk => Object.assign({}, tk, {
           style: Object.assign(tokStyle(tk), drawing ? { pointerEvents: 'none' } : null),
-          tag: showNum && tk.team !== 'ball' && tk.team !== 'cone' ? tk.label : ''
+          tag: (() => {
+            if (!showNum || tk.team === 'ball' || tk.team === 'cone') return '';
+            if (tk.team === 'home' && tk.pid) {
+              const p = D.players.find(pp => pp.id === tk.pid);
+              if (p) return playerLabel(p);
+            }
+            return tk.label;
+          })()
         })),
+        showLabels,
+        homeLabels: !showLabels ? [] : b.tokens.filter(t => t.team === 'home').map((t, i) => ({ idx: i + 1, value: t.label, onLabel: onLabelFor(t), dlId })),
+        awayLabels: !showLabels ? [] : b.tokens.filter(t => t.team === 'away').map((t, i) => ({ idx: i + 1, value: t.label, onLabel: onLabelFor(t) })),
+        noHomeLabels: b.tokens.filter(t => t.team === 'home').length === 0,
+        noAwayLabels: b.tokens.filter(t => t.team === 'away').length === 0,
         shapes,
         tools: TOOLS.map(([k, label]) => ({
           label,
@@ -1711,9 +2151,18 @@ class Component extends DCLogic {
         del: () => this.delItem('boards', b.id)
       });
     };
+    const tacticsBoards = D.boards.filter(b => b.kind === 'board');
+    const principleView = (key) => ({
+      boards: D.boards.filter(b => b.kind === 'principle' && b.principle === key).map(b => boardView(b, { showLabels: true })),
+      addBoard: () => this.addPrincipleBoard(key),
+      noCopyBoards: tacticsBoards.length === 0,
+      copyList: tacticsBoards.map(b => ({ label: b.name || 'Untitled board', copy: () => this.copyBoardInto(b, 'principle', { principle: key }) }))
+    });
     const tabDefs = [['sessions', 'Sessions'], ['philosophy', 'Philosophy'], ['players', 'Players'], ['boards', 'Tactics board'], ['matches', 'Matches'], ['physical', 'Physical']];
     const vals = {
       team: D.team, season: D.season, phil: D.phil,
+      philBuild: principleView('build'), philAttack: principleView('attack'),
+      philDefend: principleView('defend'), philTransition: principleView('transition'),
       onField: this.onField, tokDown: this.tokDown, tokMove: this.tokMove, tokUp: this.tokUp, tokDel: this.tokDel,
       drawDown: this.drawDown, drawMove: this.drawMove, drawUp: this.drawUp,
       tabs: tabDefs.map(([k, label]) => ({
@@ -1752,7 +2201,19 @@ class Component extends DCLogic {
         const onPitch = D.players.filter(p => pitch[p.id]);
         return Object.assign({}, m, {
           del: () => this.delItem('matches', m.id),
-          ratingRows: D.players.map(p => ({ pid: p.id, name: (p.num ? p.num + ' · ' : '') + (p.name || 'Unnamed'), val: (m.ratings || {})[p.id] ?? '' })),
+          ratingRows: D.players.map(p => {
+            const cur = (m.ratings || {})[p.id] || '';
+            const setRag = (code) => () => { (m.ratings || (m.ratings = {}))[p.id] = cur === code ? '' : code; this.bump(); };
+            const dim = { color: 'var(--color-neutral-500)', borderColor: 'var(--color-divider)', padding: '2px 9px', fontSize: '12px' };
+            const lit = (bg) => ({ color: '#0e0f14', background: bg, borderColor: bg, padding: '2px 9px', fontSize: '12px', fontWeight: 700 });
+            return {
+              pid: p.id, name: (p.num ? p.num + ' · ' : '') + (p.name || 'Unnamed'), val: cur,
+              setR: setRag('R'), setA: setRag('A'), setG: setRag('G'),
+              styleR: cur === 'R' ? lit('#c0504d') : dim,
+              styleA: cur === 'A' ? lit('#c9a227') : dim,
+              styleG: cur === 'G' ? lit('#4f9d6b') : dim
+            };
+          }),
           lineupCount: onPitch.length + ' on the pitch',
           pitchTokens: onPitch.map(p => ({
             pid: p.id, num: p.num || '·', name: p.name || 'Unnamed',
@@ -1767,12 +2228,31 @@ class Component extends DCLogic {
               this.bump();
             }
           })),
-          benchEmpty: D.players.length > 0 && D.players.every(p => pitch[p.id])
+          benchEmpty: D.players.length > 0 && D.players.every(p => pitch[p.id]),
+          images: (m.images || []).map(img => ({
+            id: img.id, src: img.src, caption: img.caption,
+            setCaption: (e) => { img.caption = e.currentTarget.value; this.bump(); },
+            del: () => { m.images = (m.images || []).filter(x => x.id !== img.id); this.bump(); }
+          })),
+          noImages: !(m.images && m.images.length),
+          addImages: (e) => { const files = e.currentTarget.files; this.addImageFiles(m, files); e.currentTarget.value = ''; },
+          clips: (m.clips || []).map(c => {
+            const embed = this.ytEmbed(c.url);
+            return {
+              id: c.id, url: c.url, caption: c.caption, embed,
+              hasEmbed: !!embed, showLink: !embed && !!c.url,
+              setUrl: (e) => { c.url = e.currentTarget.value; this.bump(); },
+              setCaption: (e) => { c.caption = e.currentTarget.value; this.bump(); },
+              del: () => { m.clips = (m.clips || []).filter(x => x.id !== c.id); this.bump(); }
+            };
+          }),
+          noClips: !(m.clips && m.clips.length),
+          addClip: () => { (m.clips || (m.clips = [])).push({ id: this.uid(), url: '', caption: '' }); this.bump(); }
         });
       }),
-      boardsView: D.boards.filter(b => b.kind === 'board').map(boardView),
-      passagesView: D.boards.filter(b => b.kind === 'passage').map(boardView),
-      setpiecesView: D.boards.filter(b => b.kind === 'setpiece').map(boardView),
+      boardsView: D.boards.filter(b => b.kind === 'board').map(b => boardView(b, { showLabels: true })),
+      passagesView: D.boards.filter(b => b.kind === 'passage').map(b => boardView(b, { showLabels: true })),
+      setpiecesView: D.boards.filter(b => b.kind === 'setpiece').map(b => boardView(b, { showLabels: true })),
       testsView: D.tests.map(t => Object.assign({}, t, {
         hasDates: t.dates.length > 0, noDates: t.dates.length === 0,
         del: () => { D.tests = D.tests.filter(x => x.id !== t.id); this.bump(); },
@@ -1785,7 +2265,7 @@ class Component extends DCLogic {
       })),
       addSession: () => { D.sessions.unshift({ id: this.uid(), date: this.today(), theme: '', duration: '1.5 hrs', venue: '', drillMin: '20', grpMin: '35', gameMin: '35', drill: '', grp: '', game: '', evalWell: '', evalHard: '', evalChange: '', evalGoals: '' }); this.bump(); },
       addPlayer: () => { D.players.push({ id: this.uid(), num: '', name: '', pos: '', strengths: '', develop: '', goals: '', review: '' }); this.bump(); },
-      addMatch: () => { D.matches.unshift({ id: this.uid(), date: this.today(), opponent: '', venue: '', scoreFor: '', scoreAgainst: '', formation: '', lineup: '', scorers: '', moments: '', opposition: '', ratings: {} }); this.bump(); },
+      addMatch: () => { D.matches.unshift({ id: this.uid(), date: this.today(), opponent: '', venue: '', scoreFor: '', scoreAgainst: '', formation: '', lineup: '', scorers: '', moments: '', opposition: '', ratings: {}, images: [], clips: [] }); this.bump(); },
       addBoard: () => this.addBoardOf('board', 'New board'),
       addPassage: () => this.addBoardOf('passage', 'New passage of play'),
       addSetpiece: () => this.addBoardOf('setpiece', 'New set piece'),
